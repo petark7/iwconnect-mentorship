@@ -1,17 +1,12 @@
-import { useState } from 'react'
-
-import './App.css'
-
+import './app.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from './pages/login';
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        Hello world!   
-      </div>
-    </>
-  )
+	return (
+		<>
+			<Login/>
+		</>
+	);
 }
 
-export default App
+export default App;
