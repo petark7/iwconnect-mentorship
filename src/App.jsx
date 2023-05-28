@@ -1,15 +1,11 @@
-import { useState } from 'react'
-
 import './App.css'
+import Router from './routes/router'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
 
   return (
     <>
-      <div>
-        Hello world!   
-      </div>
+      <Router/>
     </>
   )
 }
