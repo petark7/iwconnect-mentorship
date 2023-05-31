@@ -4,8 +4,9 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom';
 const RequireAuth = ({ allowedRoles }) => {
 	const location = useLocation();
 	// User roles will be fetched from Firebase
-	// if none exists - user is not logged in
-	const userRoles = ['user'];
+	// When user successfully logs in, the userRoles get updated
+	// When user is not logged in, the userRoles is empty. If empty -> navigate to login
+	const userRoles = ['user']; // This should be read from Redux Store
 
 	return userRoles?.find(role => allowedRoles?.includes(role)) ? (
 		<Outlet />

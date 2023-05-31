@@ -3,14 +3,18 @@ import {
 	Route,
 	Routes
 } from 'react-router-dom';
-import AdminPage from '../pages/AdminPage';
-import LoginPage from '../pages/LoginPage';
-import UserPage from '../pages/UserPage';
+import AdminPage from '../pages/admin-page';
+import LoginPage from '../pages/login-page';
+import UserPage from '../pages/user-page';
+import NotFoundPage from '../pages/not-found-page';
+import DashboardPage from '../pages/dashboard-page';
+import UnauthorizedPage from '../pages/unauthorized-page';
 import RequireAuth from './RequireAuth';
 
 const RouterComponent = () => (
 	<Router>
 		<Routes>
+			<Route path="/" element={<DashboardPage />} />
 			<Route element={<RequireAuth allowedRoles={['admin']} />}>
 				<Route path="/admin" element={<AdminPage />} />
 			</Route>
@@ -22,9 +26,9 @@ const RouterComponent = () => (
 			<Route path="/login" element={<LoginPage />} />
 			<Route
 				path="/unauthorized"
-				element={<h1>You don&apos;t have permissions to see this page.</h1>}
+				element={<UnauthorizedPage />}
 			/>
-			<Route path="*" element={<h1>Not found</h1>} />
+			<Route path="*" element={<NotFoundPage />} />
 		</Routes>
 	</Router>
 );
