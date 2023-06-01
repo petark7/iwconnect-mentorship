@@ -23,10 +23,10 @@
         "js": "never",
         "jsx": "never",
         "css": "always",
+        "scss": "always",
         "png": "always",
         "jpg": "always",
-        "jpeg": "always",
-        "scss": "always"
+        "jpeg": "always"
       }
     ],
     "react/jsx-uses-react": "off",
