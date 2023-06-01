@@ -5,7 +5,9 @@ import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+import { setUserRole } from '../../store/actions/userActions';
 import './login.scss';
 
 const firebaseConfig = {
@@ -23,7 +25,8 @@ const auth = getAuth();
 const db = getFirestore(app);
 
 const Login = () => {
-	const [userRoles, setUserRoles] = useState(null);
+	const role = useSelector(state => state.role);
+	const dispatch = useDispatch();
 	const {
 		register,
 		handleSubmit,
@@ -36,10 +39,7 @@ const Login = () => {
 			await setDoc(doc(db, 'users', userData.uid), {
 				uid: userData.uid,
 				email: userData.email,
-				roles: [
-					'admin',
-					'user'
-				]
+				role: 'admin'
 			});
 			console.log('Document added successfully');
 		} catch (error) {
@@ -48,11 +48,12 @@ const Login = () => {
 	};
 
 	const fetchUserRoles = async userData => {
-		const docRef = doc(db, 'users', userData.uid);
-		const docSnap = await getDoc(docRef);
+		const docRef = doc(db, 'users', userData.uid); // Ref to the user
+		const docSnap = await getDoc(docRef); // Snapshot to the document
 
+		// Saves the role in the Redux Store
 		if (docSnap.exists()) {
-			setUserRoles(docSnap.data().roles);
+			dispatch(setUserRole(docSnap.data().role));
 		} else {
 			console.log('No such document!');
 		}
@@ -64,7 +65,7 @@ const Login = () => {
 				// Signed in
 				const user = userCredential.user;
 				toast.success('Logged in!');
-				// Upon successful login, set roles to Redux store
+				// Upon successful login, set role to Redux store
 				fetchUserRoles(user);
 			})
 			.catch(error => {
@@ -74,7 +75,7 @@ const Login = () => {
 			});
 	};
 
-	console.log(`User roles: ${JSON.stringify(userRoles)}`);
+	console.log(role);
 
 	return (
 		<div className="login-mainContainer">
