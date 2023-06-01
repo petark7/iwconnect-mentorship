@@ -5,10 +5,11 @@ import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import Cookies from 'universal-cookie';
 import { setUserRole } from '../../store/actions/userActions';
 import './login.scss';
+import { Navigate, useNavigate } from 'react-router';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyCnmB0flqjkoqggingviHwriy5lxcrfqVw',
@@ -23,9 +24,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore(app);
-
 const Login = () => {
-	const role = useSelector(state => state.role);
+	const navigate = useNavigate();
+	const cookies = new Cookies();
 	const dispatch = useDispatch();
 	const {
 		register,
@@ -54,6 +55,8 @@ const Login = () => {
 		// Saves the role in the Redux Store
 		if (docSnap.exists()) {
 			dispatch(setUserRole(docSnap.data().role));
+			cookies.set('userRole', docSnap.data().role, { path: '/' });
+			navigate('/');
 		} else {
 			console.log('No such document!');
 		}
@@ -65,6 +68,7 @@ const Login = () => {
 				// Signed in
 				const user = userCredential.user;
 				toast.success('Logged in!');
+				cookies.set('accessToken', user.accessToken, { maxAge: 3600 });
 				// Upon successful login, set role to Redux store
 				fetchUserRoles(user);
 			})
@@ -74,8 +78,6 @@ const Login = () => {
 				console.log(error);
 			});
 	};
-
-	console.log(role);
 
 	return (
 		<div className="login-mainContainer">

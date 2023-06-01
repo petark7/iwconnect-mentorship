@@ -1,13 +1,15 @@
+import Cookies from 'universal-cookie';
 import AdminDashboard from '../../components/AdminDashboard';
 import UserDashboard from '../../components/UserDashboard';
 import './dashboard.scss';
 
 const DashboardPage = () => {
+	const cookies = new Cookies();
+	const userRole = cookies.get('userRole');
 	// Add admin login check here
-	const isAdmin = true;
 	return (
 		<>
-			{isAdmin ? <AdminDashboard /> : <UserDashboard />}
+			{userRole === 'admin' ? <AdminDashboard /> : <UserDashboard />}
 		</>
 	);
 };
