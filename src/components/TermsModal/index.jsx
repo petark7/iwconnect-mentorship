@@ -35,7 +35,7 @@ const CLOSE_BUTTON = {
 const HEADING_STYLES = {
 	marginBottom: 25
 };
-const TermsModal = ({ toggleModal, modalVisible }) => (
+const TermsModal = ({ toggleModal }) => (
 	<>
 		<div style={OVERLAY_STYLES} onClick={toggleModal} />
 		<div style={MODAL_STYLES}>
