@@ -7,9 +7,9 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import Cookies from 'universal-cookie';
+import { Navigate, useNavigate } from 'react-router';
 import { setUserRole } from '../../store/actions/userActions';
 import './login.scss';
-import { Navigate, useNavigate } from 'react-router';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyCnmB0flqjkoqggingviHwriy5lxcrfqVw',
