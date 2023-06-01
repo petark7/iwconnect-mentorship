@@ -1,15 +1,15 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 import './navbar.scss';
 
-const NavbarComponent = () => (
+const NavbarComponent = ({ children }) => (
 	<Navbar bg="primary" variant="dark">
 		<Container>
-			<Navbar.Brand href="#home">Room Reservation</Navbar.Brand>
+			<Navbar.Brand as={Link} to="/">Room Reservation</Navbar.Brand>
 			<Nav className="text-center">
-				<Nav.Link href="#users">Users</Nav.Link>
-				<Nav.Link href="#venues">Venues</Nav.Link>
+				{children}
 			</Nav>
 		</Container>
 	</Navbar>

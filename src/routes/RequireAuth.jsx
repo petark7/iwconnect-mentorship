@@ -3,7 +3,7 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
 const RequireAuth = ({ allowedRoles }) => {
 	const location = useLocation();
-	const userRole = 'user'; // This should be read from Redux Store
+	const userRole = 'admin'; // This should be read from Redux Store
 
 	// Auth logic goes here
 };
