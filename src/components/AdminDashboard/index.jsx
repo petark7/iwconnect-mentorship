@@ -1,7 +1,7 @@
 import Footer from '../Footer';
 import AdminNavbar from '../AdminNavbar';
 
-const Admin = () => (
+const AdminDashboard = () => (
 	<div className="d-flex flex-column min-vh-100">
 		<AdminNavbar />
 		<div className="container flex-grow-1 py-3">
@@ -12,4 +12,4 @@ const Admin = () => (
 	</div>
 );
 
-export default Admin;
+export default AdminDashboard;

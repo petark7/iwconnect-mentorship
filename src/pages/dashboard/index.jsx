@@ -1,5 +1,5 @@
 import Cookies from 'universal-cookie';
-import AdminDashboard from '../../components/Admin';
+import AdminDashboard from '../../components/AdminDashboard';
 import UserDashboard from '../../components/UserDashboard';
 import './dashboard.scss';
 
