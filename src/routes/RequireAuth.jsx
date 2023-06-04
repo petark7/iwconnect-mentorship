@@ -17,7 +17,7 @@ const RequireAuth = ({ allowedRoles }) => {
 };
 
 RequireAuth.propTypes = {
-	allowedRoles: PropTypes.arrayOf(PropTypes.string).isRequired
+	allowedRoles: PropTypes.string.isRequired
 };
 
 export default RequireAuth;

@@ -7,8 +7,9 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import Cookies from 'universal-cookie';
-import { Navigate, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import { setUserRole } from '../../store/actions/userActions';
+import mockData from '../../MOCK_DATA';
 import './login.scss';
 
 const firebaseConfig = {
@@ -35,16 +36,24 @@ const Login = () => {
 	} = useForm();
 
 	// Add logged in user (roles) to the database
-	const addToDatabase = async userData => {
-		try {
-			await setDoc(doc(db, 'users', userData.uid), {
-				uid: userData.uid,
-				email: userData.email,
-				role: 'admin'
-			});
-			console.log('Document added successfully');
-		} catch (error) {
-			console.error('Error adding document:', error);
+	const addToDatabase = () => {
+		for (const user of mockData) {
+			try {
+				setDoc(doc(db, 'users', user.uid), {
+					uid: user.uid,
+					email: user.email,
+					role: 'user',
+					name: user.name,
+					age: user.age,
+					address: user.address,
+					phone: user.phone,
+					company: user.company,
+					image: user.image
+				});
+				console.log('Document added successfully');
+			} catch (error) {
+				console.error('Error adding document:', error);
+			}
 		}
 	};
 
@@ -62,6 +71,7 @@ const Login = () => {
 		}
 	};
 
+	// Handle user login
 	const formSubmit = data => {
 		signInWithEmailAndPassword(auth, data.email, data.password)
 			.then(userCredential => {
