@@ -1,8 +1,8 @@
 import { createPortal } from 'react-dom';
 import { useState } from 'react';
 import TermsModal from '../../components/TermsModal';
-import './footer.scss';
 import PrivacyPolicyModal from '../PrivacyPolicyModal';
+import './footer.scss';
 
 const Footer = () => {
 	const [showTerms, setShowTerms] = useState(false);
@@ -28,9 +28,8 @@ const Footer = () => {
 						document.body
 					)}
 					<a
-						href="#" className="text-light me-3" onClick={() => {
-							setShowTerms(true);
-						}}
+						href="#" className="text-light me-3" onClick={() => setShowTerms(true)}
+
 					>
 						Terms and Conditions
 					</a>

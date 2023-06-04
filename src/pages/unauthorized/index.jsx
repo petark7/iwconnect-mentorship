@@ -4,6 +4,7 @@ import './unauthorized.scss';
 
 const Unauthorized = () => {
 	const navigate = useNavigate();
+
 	return (
 		<main className="unauthorized-mainContainer">
 			<h2 className="unauthorized-h2">Error: 403 unauthorized</h2>

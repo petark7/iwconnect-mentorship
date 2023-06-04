@@ -1,13 +1,11 @@
-import Footer from '../Footer';
-import AdminNavbar from '../AdminNavbar';
+import Layout from '../Layout';
 
 const AdminDashboard = () => (
 	<div className="d-flex flex-column min-vh-100">
-		<AdminNavbar />
-		<div className="container flex-grow-1 py-3">
+		<Layout>
 			<h1>Dashboard</h1>
-		</div>
-		<Footer />
+			<p>Fancy stuff will be here</p>
+		</Layout>
 	</div>
 );
 
