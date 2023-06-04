@@ -1,26 +1,17 @@
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import Cookies from 'universal-cookie';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { useDispatch } from 'react-redux';
-import Cookies from 'universal-cookie';
-import { useNavigate } from 'react-router';
+import firebaseConfig from '../../constants/firebaseConfig';
 import { setUserRole } from '../../store/actions/userActions';
 import mockData from '../../MOCK_DATA';
 import './login.scss';
-
-const firebaseConfig = {
-	apiKey: 'AIzaSyCnmB0flqjkoqggingviHwriy5lxcrfqVw',
-	authDomain: 'iwconnect-mentorship.firebaseapp.com',
-	projectId: 'iwconnect-mentorship',
-	storageBucket: 'iwconnect-mentorship.appspot.com',
-	messagingSenderId: '384055523695',
-	appId: '1:384055523695:web:7792f92012ad3a894ed09a',
-	measurementId: 'G-TJ6DV12JLY'
-};
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();

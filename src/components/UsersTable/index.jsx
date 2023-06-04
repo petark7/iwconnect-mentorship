@@ -19,15 +19,16 @@ const UsersTable = ({ usersData }) => (
 					<td>{user.name}</td>
 					<td>{user.email}</td>
 					<td>{user.phone}</td>
-					<td><Button
-						style={{ width: '100px' }}
-						variant="danger"
-						onClick={() => {
-							alert(`handle button click, userID: ${user.uid}`);
-						}}
-					    >
-						Delete
-					</Button>
+					<td>
+						<Button
+							style={{ width: '100px' }}
+							variant="danger"
+							onClick={() => {
+								alert(`handle button click, userID: ${user.uid}`);
+							}}
+						>
+							Delete
+						</Button>
 					</td>
 				</tr>
 			))}
