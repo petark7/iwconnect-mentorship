@@ -62,21 +62,19 @@ const Login = () => {
 		}
 	};
 
-	const formSubmit = data => {
-		signInWithEmailAndPassword(auth, data.email, data.password)
-			.then(userCredential => {
-				// Signed in
-				const user = userCredential.user;
-				toast.success('Logged in!');
-				cookies.set('accessToken', user.accessToken, { maxAge: 3600 });
-				// Upon successful login, set role to Redux store
-				fetchUserRoles(user);
-			})
-			.catch(error => {
-				// Can implement better error handling
-				toast.error('Oops, it looks like you entered wrong credentials.');
-				console.log(error);
-			});
+	const formSubmit = async data => {
+		try {
+			const userCredential = await signInWithEmailAndPassword(auth, data.email, data.password);
+			const user = userCredential.user;
+			toast.success('Logged in!');
+			cookies.set('accessToken', user.accessToken, { maxAge: 3600 });
+			// Upon successful login, set role to Redux store
+			fetchUserRoles(user);
+		} catch (error) {
+			// Can implement better error handling
+			toast.error('Oops, it looks like you entered wrong credentials.');
+			console.log(error);
+		}
 	};
 
 	return (
