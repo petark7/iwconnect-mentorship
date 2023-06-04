@@ -10,7 +10,6 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import firebaseConfig from '../../constants/firebaseConfig';
 import { setUserRole } from '../../store/actions/userActions';
-import mockData from '../../MOCK_DATA';
 import './login.scss';
 
 const app = initializeApp(firebaseConfig);
@@ -26,27 +25,29 @@ const Login = () => {
 		formState: { errors }
 	} = useForm();
 
-	// Add logged in user (roles) to the database
-	const addToDatabase = () => {
-		for (const user of mockData) {
-			try {
-				setDoc(doc(db, 'users', user.uid), {
-					uid: user.uid,
-					email: user.email,
-					role: 'user',
-					name: user.name,
-					age: user.age,
-					address: user.address,
-					phone: user.phone,
-					company: user.company,
-					image: user.image
-				});
-				console.log('Document added successfully');
-			} catch (error) {
-				console.error('Error adding document:', error);
-			}
-		}
-	};
+	// TRANSFER TO SIGNUP PAGE
+	// Add logged in user to the database
+	//
+	// const addToDatabase = () => {
+	// 	for (const user of mockData) {
+	// 		try {
+	// 			setDoc(doc(db, 'users', user.uid), {
+	// 				uid: user.uid,
+	// 				email: user.email,
+	// 				role: 'user',
+	// 				name: user.name,
+	// 				age: user.age,
+	// 				address: user.address,
+	// 				phone: user.phone,
+	// 				company: user.company,
+	// 				image: user.image
+	// 			});
+	// 			console.log('Document added successfully');
+	// 		} catch (error) {
+	// 			console.error('Error adding document:', error);
+	// 		}
+	// 	}
+	// };
 
 	const fetchUserRoles = async userData => {
 		const docRef = doc(db, 'users', userData.uid); // Ref to the user

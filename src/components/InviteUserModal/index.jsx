@@ -14,7 +14,7 @@ const InviteUserModal = ({ toggleModal, isModalShown }) => {
 	return (
 		<>
 			{isModalShown && createPortal(
-				<Modal toggleModal={toggleModal} title="Invite user">
+				<Modal isOpened={toggleModal} title="Invite user">
 					<Form onSubmit={handleSubmit}>
 						<Form.Group className="mb-3" controlId="emailAddress">
 							<Form.Label>Email address</Form.Label>

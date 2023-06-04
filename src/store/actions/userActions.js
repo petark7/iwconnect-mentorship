@@ -1,6 +1,6 @@
-const SET_USER_ROLE = 'SET_USER_ROLE';
+import * as actionTypes from '../../constants/actionTypes';
 
 export const setUserRole = role => ({
-	type: SET_USER_ROLE,
+	type: actionTypes.SET_USER_ROLE,
 	payload: role
 });

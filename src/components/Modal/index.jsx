@@ -1,4 +1,6 @@
 import { GrClose } from 'react-icons/gr';
+import PropTypes from 'prop-types';
+import './index.css';
 
 const MODAL_STYLES = {
 	position: 'fixed',
@@ -6,7 +8,6 @@ const MODAL_STYLES = {
 	left: '50%',
 	transform: 'translate(-50%, -50%)',
 	zIndex: 1000,
-	width: '60%',
 	maxWidth: '800px',
 	height: 'fit-content',
 	backgroundColor: 'white',
@@ -36,17 +37,21 @@ const CLOSE_BUTTON = {
 const HEADING_STYLES = {
 	marginBottom: 25
 };
-const Modal = ({ toggleModal, title, children }) => (
+const Modal = ({ isOpened, title, children }) => (
 	<>
-		<div style={OVERLAY_STYLES} onClick={() => toggleModal(false)} />
-		<div style={MODAL_STYLES}>
-			<div style={CLOSE_BUTTON}>
-				<GrClose onClick={() => toggleModal(false)} />
+		<div className="modal-overlay" style={OVERLAY_STYLES} onClick={() => isOpened(false)} />
+		<div className="modal-container" style={MODAL_STYLES}>
+			<div className="modal-closeButton" style={CLOSE_BUTTON}>
+				<GrClose onClick={() => isOpened(false)} />
 			</div>
-			<h1 style={HEADING_STYLES}>{title}</h1>
+			<h1 className="modal-heading" style={HEADING_STYLES}>{title}</h1>
 			{children}
 		</div>
 	</>
 );
 
+Modal.propTypes = {
+	isOpened: PropTypes.bool.isRequired
+
+};
 export default Modal;

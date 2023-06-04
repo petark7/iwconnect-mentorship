@@ -13,7 +13,11 @@ const Footer = () => {
 			<div className="container">
 				<div>
 					{showPrivacyPolicy && createPortal(
-						<PrivacyPolicyModal modalVisible={showPrivacyPolicy} toggleModal={() => setShowPrivacyPolicy(false)} />,
+						<PrivacyPolicyModal
+							modalVisible={showPrivacyPolicy} toggleModal={event => {
+								event.preventDefault();
+								setShowPrivacyPolicy(false);
+							}} />,
 						document.body
 					)}
 					<a
