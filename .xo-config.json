@@ -13,6 +13,7 @@
         ".jpg": "always",
         ".jpeg": "always",
         ".scss": "always",
+        ".json": "always",
         "": "always"
       }
     ],
@@ -26,7 +27,8 @@
         "scss": "always",
         "png": "always",
         "jpg": "always",
-        "jpeg": "always"
+        "jpeg": "always",
+        "json": "always"
       }
     ],
     "react/jsx-uses-react": "off",

@@ -51,7 +51,6 @@ const Users = () => {
 		email: user.email,
 		phone: user.phone
 	}));
-	usersData.count = users.length;
 
 	const columns = [
 		{
@@ -82,7 +81,7 @@ const Users = () => {
 				<ItemsPerPageControl itemsPerPage={setItemsPerPage} />
 			</div>
 			<InviteUserModal toggleModal={setInviteUser} isModalShown={inviteUser} />
-			<DataTable columns={columns} data={usersData.data} dataCount={usersData.count} itemsPerPage={itemsPerPage} />
+			<DataTable columns={columns} data={usersData.data} itemsPerPage={itemsPerPage} />
 		</Layout>
 	);
 };

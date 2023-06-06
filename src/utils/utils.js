@@ -4,20 +4,17 @@ export const isUserLoggedIn = () => {
 	const cookies = new Cookies();
 	const accessToken = cookies.get('accessToken');
 
-	if (accessToken) {
-		return true;
-	}
+	// If (accessToken) {
+	// 	return true;
+	// }
 
-	return false;
+	// return false;
+	return Boolean(accessToken);
 };
 
 export const isAdmin = () => {
 	const cookies = new Cookies();
 	const role = cookies.get('userRole');
 
-	if (role === 'admin') {
-		return true;
-	}
-
-	return false;
+	return role === 'admin';
 };
