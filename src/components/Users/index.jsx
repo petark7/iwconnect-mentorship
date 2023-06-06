@@ -45,8 +45,7 @@ const Users = () => {
 		fetchUsers();
 	}, []);
 
-	const usersData = [{ count: 0, data: null }];
-	usersData.data = users.map(user => ({
+	const rows = users.map(user => ({
 		name: user.name,
 		email: user.email,
 		phone: user.phone
@@ -81,7 +80,7 @@ const Users = () => {
 				<ItemsPerPageControl itemsPerPage={setItemsPerPage} />
 			</div>
 			<InviteUserModal toggleModal={setInviteUser} isModalShown={inviteUser} />
-			<DataTable columns={columns} data={usersData.data} itemsPerPage={itemsPerPage} />
+			<DataTable columns={columns} data={rows} itemsPerPage={itemsPerPage} />
 		</Layout>
 	);
 };
