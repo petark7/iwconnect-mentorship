@@ -3,30 +3,17 @@ import { useEffect, useState } from 'react';
 import Layout from '../../components/Layout';
 import RowTable from '../../components/RowTable';
 import UserProfile from '../../components/UserProfile';
-import { getCollection, getUserByEmail } from '../../utils/firebaseUtils';
+import { getCollection } from '../../utils/firebaseUtils';
 
 const UserDetails = () => {
 	const { email } = useParams();
-	const [userData, setUserData] = useState([]);
 	const [user, setUser] = useState({});
 	const [userProfile, setUserProfile] = useState({});
 	const [additionalInfo, setAdditionalInfo] = useState([]);
 
-	const rowsData = [{
-		id: 0,
-		name: 'Full Name',
-		value: 'John Doe'
-	},
-	{
-		id: 1,
-		name: 'Email',
-		value: 'blabla@gmail.com'
-	}];
-
 	const fetchUserData = async () => {
 		try {
 			const data = await getCollection('users');
-			setUserData(data);
 			setUser(data.find(user => user.email === email));
 		} catch (error) {
 			console.log(error);
@@ -35,7 +22,7 @@ const UserDetails = () => {
 
 	useEffect(() => {
 		fetchUserData();
-	}, []);
+	});
 
 	useEffect(() => {
 		setUserProfile({
@@ -46,7 +33,28 @@ const UserDetails = () => {
 		});
 	}, [user]);
 
-	console.log(userProfile);
+	useEffect(() => {
+		const formattedInfo = [
+			{
+				name: 'Full Name',
+				value: user.name
+			},
+
+			{
+				name: 'Email',
+				value: user.email
+			},
+			{
+				name: 'Phone Number',
+				value: user.phone
+			},
+			{
+				name: 'Age',
+				value: user.age
+			}
+		];
+		setAdditionalInfo(formattedInfo);
+	}, [user]);
 
 	return (
 		<Layout>
@@ -55,7 +63,7 @@ const UserDetails = () => {
 					<div className="col-lg-3">
 						<UserProfile user={userProfile} />
 					</div>
-					<RowTable rows={rowsData} />
+					<RowTable rows={additionalInfo} />
 				</div>
 
 			</section>

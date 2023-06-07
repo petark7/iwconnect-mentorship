@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Suspense } from 'react';
 
 // EXPECTS PROPS IN FORMAT:
 //     {
