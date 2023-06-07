@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Table from 'react-bootstrap/Table';
 import { PaginationControl } from 'react-bootstrap-pagination-control';
 import './index.scss';
 
 const DataTable = ({ columns, rows, itemsPerPage }) => {
+	const navigate = useNavigate();
 	const [page, setPage] = useState(1);
 	const [paginatedData, setPaginatedData] = useState([]);
 
@@ -31,7 +33,7 @@ const DataTable = ({ columns, rows, itemsPerPage }) => {
 				</thead>
 				<tbody>
 					{paginatedData.map((row, index) => (
-						<tr key={index} style={{ cursor: 'pointer' }} onClick={() => {}}>
+						<tr key={index} style={{ cursor: 'pointer' }} onClick={() => navigate(`/user-details/${row.email}`)}>
 							{columns.map(column => (
 								<td key={column.key}>{row[column.key]}</td>
 							))}

@@ -3,7 +3,7 @@ import { GrClose } from 'react-icons/gr';
 import PropTypes from 'prop-types';
 import './index.css';
 
-const Modal = ({ isOpened, title, children }) => {
+const Modal = ({ isOpened, title, children, customStyling }) => {
 	useEffect(() => {
 		document.body.style.overflow = 'hidden';
 		return () => {
