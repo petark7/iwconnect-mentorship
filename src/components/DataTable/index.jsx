@@ -34,12 +34,7 @@ const DataTable = ({ columns, rows, itemsPerPage }) => {
 				</thead>
 				<tbody>
 					{paginatedData.map((row, index) => (
-						<tr
-							key={index} style={{ cursor: 'pointer' }} onClick={event => {
-								event.stopPropagation();
-								navigate(`/user-details/${row.email}`);
-							}}
-						>
+						<tr key={index} style={{ cursor: 'pointer' }} onClick={() => navigate(`/user-details/${row.email}`)}>
 							{columns.map(column => (
 								<td key={column.key}>{row[column.key]}</td>
 							))}

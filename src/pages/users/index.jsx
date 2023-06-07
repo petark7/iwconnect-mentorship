@@ -67,7 +67,8 @@ const Users = () => {
 	const rows = users.map(user => {
 		const deleteButton = (
 			<Button
-				variant="danger" onClick={() => {
+				variant="danger" onClick={event => {
+					event.stopPropagation();
 					setDeleteUserModal({ userID: user.uid });
 				}}
 			>Delete
