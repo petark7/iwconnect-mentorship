@@ -11,12 +11,12 @@ const NavbarComponent = () => {
 	const adminLinks = [
 		{
 			id: 1,
-			path: '/admin/users',
+			path: '/users',
 			display: 'Users'
 		},
 		{
 			id: 2,
-			path: '/admin/venues',
+			path: '/venues',
 			display: 'Venues'
 		}
 	];
@@ -24,17 +24,17 @@ const NavbarComponent = () => {
 	const userLinks = [
 		{
 			id: 1,
-			path: '/user/reservations',
+			path: '/reservations',
 			display: 'Reservations'
 		},
 		{
 			id: 2,
-			path: '/user/venues',
+			path: '/venues',
 			display: 'Venues'
 		},
 		{
 			id: 3,
-			path: '/user/profile',
+			path: '/profile',
 			display: 'Profile'
 		}
 	];
@@ -44,7 +44,6 @@ const NavbarComponent = () => {
 		return navLinks;
 	};
 
-	document.querySelector('#asdsad');
 	return (
 		<Navbar bg="primary" variant="dark">
 			<Container>

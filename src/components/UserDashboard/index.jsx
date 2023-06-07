@@ -1,5 +1,9 @@
+import Layout from '../Layout';
+
 const User = () => (
-	<h1>User page</h1>
+	<Layout>
+		<h1>User page</h1>
+	</Layout>
 );
 
 export default User;

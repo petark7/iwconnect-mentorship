@@ -18,7 +18,7 @@ const ItemsPerPage = ({ itemsPerPage }) => (
 );
 
 ItemsPerPage.propTypes = {
-	itemsPerPage: PropTypes.number.isRequired
+	itemsPerPage: PropTypes.func
 };
 
 export default ItemsPerPage;

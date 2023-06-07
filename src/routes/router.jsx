@@ -7,8 +7,8 @@ import LoginPage from '../pages/login';
 import NotFoundPage from '../pages/not-found';
 import DashboardPage from '../pages/dashboard';
 import UnauthorizedPage from '../pages/unauthorized';
-import Users from '../components/Users';
-import AdminVenues from '../components/AdminVenues';
+import UsersPage from '../pages/users';
+import VenuesPage from '../pages/venues';
 import RequireLogin from './RequireLogin';
 import RequireAuth from './RequireAuth';
 
@@ -20,8 +20,8 @@ const RouterComponent = () => (
 			</Route>
 
 			<Route element={<RequireAuth allowedRoles="admin" />}>
-				<Route path="/admin/users" element={<Users />} />
-				<Route path="/admin/venues" element={<AdminVenues />} />
+				<Route path="/users" element={<UsersPage />} />
+				<Route path="/venues" element={<VenuesPage />} />
 			</Route>
 
 			<Route path="/login" element={<LoginPage />} />

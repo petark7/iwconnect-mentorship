@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
+import { getFirestore, doc, deleteDoc, collection } from 'firebase/firestore';
 import { getAuth, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import firebaseConfig from '../../constants/firebaseConfig';
+import firebaseConfig from '../constants/firebaseConfig';
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -18,6 +18,15 @@ export const addUser = async (email, password) => {
 
 		console.log(errorMessage);
 		return errorCode;
+	}
+};
+
+export const deleteUser = async userID => {
+	try {
+		const user = doc(db, 'users', userID);
+		await deleteDoc(user);
+	} catch (error) {
+		return error;
 	}
 };
 
