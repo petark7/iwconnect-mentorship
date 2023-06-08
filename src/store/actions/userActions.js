@@ -1,6 +1,11 @@
-import * as actionTypes from '../../constants/actionTypes';
+import { ActionTypes } from '../../constants/actionTypes';
 
 export const setUserRole = role => ({
-	type: actionTypes.SET_USER_ROLE,
+	type: ActionTypes.SET_USER_ROLE,
 	payload: role
+});
+
+export const setUsers = users => ({
+	type: ActionTypes.SET_USERS,
+	payload: users
 });

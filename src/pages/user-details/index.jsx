@@ -4,6 +4,7 @@ import Layout from '../../components/Layout';
 import RowTable from '../../components/RowTable';
 import UserProfile from '../../components/UserProfile';
 import { getCollection } from '../../utils/firebaseUtils';
+import './index.scss';
 
 const UserDetails = () => {
 	const { email } = useParams();
@@ -22,7 +23,7 @@ const UserDetails = () => {
 
 	useEffect(() => {
 		fetchUserData();
-	});
+	}, []);
 
 	useEffect(() => {
 		setUserProfile({
@@ -59,6 +60,7 @@ const UserDetails = () => {
 	return (
 		<Layout>
 			<section style={{ backgroundColor: '#eee', padding: '30px' }}>
+				<div className="user-details-title">User Details</div>
 				<div className="d-flex justify-content-center row">
 					<div className="col-lg-3">
 						<UserProfile user={userProfile} />

@@ -1,1 +1,3 @@
-export const SET_USER_ROLE = 'SET_USER_ROLE';
+export const ActionTypes = {
+	SET_USER_ROLE: 'SET_USER_ROLE'
+};
