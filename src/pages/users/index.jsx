@@ -1,54 +1,43 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import { toast } from 'react-hot-toast';
 import Layout from '../../components/Layout';
 import DataTable from '../../components/DataTable';
 import InviteUserModal from '../../components/InviteUserModal';
-import firebaseConfig from '../../constants/firebaseConfig';
-import { deleteUser } from '../../utils/firebaseUtils';
 import ItemsPerPageControl from '../../components/ItemsPerPage';
 import Modal from '../../components/Modal';
+import { deleteUser, getCollection } from '../../utils/firebaseUtils';
+import { storeUsers } from '../../store/actions/userActions';
 
 const Users = () => {
-	const [inviteUser, setInviteUser] = useState(false);
-	const app = initializeApp(firebaseConfig);
-	const db = getFirestore(app);
+	const dispatch = useDispatch();
+	const users = useSelector(state => state.users);
 
+	// MODAL STATE
+	const [inviteUser, setInviteUser] = useState(false);
 	const [deleteUserModal, setDeleteUserModal] = useState({
 		userID: null
 	});
-	const [itemsPerPage, setItemsPerPage] = useState(20);
-	const [users, setUsers] = useState([
-		{
-			uid: '',
-			address: '',
-			age: '',
-			company: '',
-			email: '',
-			image: '',
-			name: '',
-			phone: '',
-			role: ''
-		}
-	]);
+
+	const [itemsPerPage, setItemsPerPage] = useState(20); // For pagination
+
 	const fetchUsers = async () => {
 		try {
-			const querySnapshot = await getDocs(collection(db, 'users'));
-			const usersData = querySnapshot.docs.map(doc => ({
-				id: doc.id,
-				...doc.data()
-			}));
-			setUsers(usersData);
+			// Get data from API and set to Redux
+			const users = await getCollection('users');
+			dispatch(storeUsers(users));
 		} catch (error) {
 			console.log('Error getting users:', error);
 		}
 	};
 
 	useEffect(() => {
-		fetchUsers();
+		// FETCH DATA FROM API IF HASN'T ALREADY FETCHED
+		if (users.length === 0) {
+			fetchUsers();
+		}
 	}, []);
 
 	const deleteUserFromDB = async () => {

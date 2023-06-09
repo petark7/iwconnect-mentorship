@@ -1,13 +1,13 @@
 const initialState = {
-	role: null
+	users: []
 };
 
 const userReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case 'SET_USER_ROLE': {
+		case 'STORE_USERS': {
 			return {
 				...state,
-				role: action.payload };
+				users: action.payload };
 		}
 
 		default: {

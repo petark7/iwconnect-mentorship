@@ -1,14 +1,22 @@
 import { createPortal } from 'react-dom';
+import { toast } from 'react-hot-toast';
+import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 import Modal from '../Modal';
 
 const InviteUserModal = ({ toggleModal, isModalShown }) => {
-	const handleSubmit = event => {
+	const handleSubmit = async event => {
 		event.preventDefault();
-		// Handle sending email here.
-		// if successfull -> close modal + show toast,
-		// unsuccessful -> show toast
+		try {
+			await axios.post('https://run.mocky.io/v3/b1855737-fff4-4baa-a207-91f6671a1bf8');
+			toast.success('Invite sent successfully!');
+			toggleModal(false);
+		} catch (error) {
+			console.log(error);
+			toast.error('There was an issue sending the invite.');
+		}
 	};
 
 	return (
@@ -29,4 +37,8 @@ const InviteUserModal = ({ toggleModal, isModalShown }) => {
 	);
 };
 
+InviteUserModal.propTypes = {
+	toggleModal: PropTypes.func,
+	isModalShown: PropTypes.bool
+};
 export default InviteUserModal;

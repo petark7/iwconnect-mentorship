@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router';
-import { useDispatch } from 'react-redux';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import Cookies from 'universal-cookie';
 import Form from 'react-bootstrap/Form';
@@ -9,7 +8,6 @@ import Button from 'react-bootstrap/Button';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import firebaseConfig from '../../constants/firebaseConfig';
-import { setUserRole } from '../../store/actions/userActions';
 import './login.scss';
 
 const app = initializeApp(firebaseConfig);
@@ -18,7 +16,7 @@ const db = getFirestore(app);
 const Login = () => {
 	const navigate = useNavigate();
 	const cookies = new Cookies();
-	const dispatch = useDispatch();
+
 	const {
 		register,
 		handleSubmit,
@@ -55,7 +53,6 @@ const Login = () => {
 
 		// Saves the role in the Redux Store
 		if (docSnap.exists()) {
-			dispatch(setUserRole(docSnap.data().role));
 			cookies.set('userRole', docSnap.data().role, { path: '/' });
 			navigate('/');
 		} else {

@@ -52,6 +52,7 @@ export const getCollection = async collectionName => {
 		return (collectionData);
 	} catch (error) {
 		console.log('Error getting the data:', error);
+		throw error;
 	}
 };
 

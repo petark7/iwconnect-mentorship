@@ -1,21 +1,22 @@
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import Layout from '../../components/Layout';
 import RowTable from '../../components/RowTable';
 import UserProfile from '../../components/UserProfile';
-import { getCollection } from '../../utils/firebaseUtils';
 import './index.scss';
 
 const UserDetails = () => {
 	const { email } = useParams();
+	const users = useSelector(state => state.users);
+
 	const [user, setUser] = useState({});
 	const [userProfile, setUserProfile] = useState({});
 	const [additionalInfo, setAdditionalInfo] = useState([]);
 
 	const fetchUserData = async () => {
 		try {
-			const data = await getCollection('users');
-			setUser(data.find(user => user.email === email));
+			setUser(users.find(user => user.email === email));
 		} catch (error) {
 			console.log(error);
 		}
