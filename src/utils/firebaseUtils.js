@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, query, where, doc, deleteDoc, getDocs, collection } from 'firebase/firestore';
+import { getFirestore, query, where, doc, deleteDoc, getDocs, collection, updateDoc } from 'firebase/firestore';
 import { getAuth, signOut, createUserWithEmailAndPassword } from 'firebase/auth';
 import Cookies from 'universal-cookie';
 import firebaseConfig from '../constants/firebaseConfig';

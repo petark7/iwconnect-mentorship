@@ -17,11 +17,9 @@ const RowTable = ({ rows }) => {
 	));
 
 	return (
-		<div className="col-lg-8">
-			<div className="card mb-4">
-				<div className="card-body">
-					{tableData}
-				</div>
+		<div className="card mb-4">
+			<div className="card-body">
+				{tableData}
 			</div>
 		</div>
 	);
