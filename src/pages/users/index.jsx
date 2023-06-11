@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Button from 'react-bootstrap/Button';
 import { toast } from 'react-hot-toast';
+import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout';
 import DataTable from '../../components/DataTable';
 import InviteUserModal from '../../components/InviteUserModal';
@@ -13,6 +14,7 @@ import { storeUsers } from '../../store/actions/userActions';
 
 const Users = () => {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const users = useSelector(state => state.users);
 
 	// MODAL STATE
@@ -22,6 +24,10 @@ const Users = () => {
 	});
 
 	const [itemsPerPage, setItemsPerPage] = useState(20); // For pagination
+
+	const handleTableClick = userID => {
+		navigate(`/user-details/${userID}`);
+	};
 
 	const fetchUsers = async () => {
 		try {
@@ -64,6 +70,7 @@ const Users = () => {
 			</Button>
 		);
 		return 	({
+			id: user.uid,
 			name: user.name,
 			email: user.email,
 			phone: user.phone,
@@ -104,7 +111,7 @@ const Users = () => {
 				<ItemsPerPageControl itemsPerPage={setItemsPerPage} />
 			</div>
 			<InviteUserModal toggleModal={setInviteUser} isModalShown={inviteUser} />
-			<DataTable columns={columns} rows={rows} itemsPerPage={itemsPerPage} />
+			<DataTable columns={columns} rows={rows} itemsPerPage={itemsPerPage} onClick={handleTableClick} />
 
 			{ Boolean(deleteUserModal.userID)
 			&& createPortal(

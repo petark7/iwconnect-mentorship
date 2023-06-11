@@ -1,35 +1,69 @@
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
+import { toast } from 'react-hot-toast';
 import Layout from '../../components/Layout';
 import RowTable from '../../components/RowTable';
 import UserProfile from '../../components/UserProfile';
 import EditDataModal from '../../components/EditDataModal';
-import { getUserByEmail } from '../../utils/firebaseUtils';
+import { updateUser } from '../../store/actions/userActions';
 import './index.scss';
 
-const UserDetails = () => {
-	const { email } = useParams();
-	const users = useSelector(state => state.users);
-	const [showEditModal, setShowEditModal] = useState(false);
-
+const UserDetails = ({ users }) => {
+	const { uid } = useParams();
+	const dispatch = useDispatch();
 	const [user, setUser] = useState({});
+	const [showEditModal, setShowEditModal] = useState(false);
 	const [userProfile, setUserProfile] = useState({});
 	const [additionalInfo, setAdditionalInfo] = useState([]);
 
 	const fetchUserData = async () => {
 		try {
-			setUser(users.find(user => user.email === email));
+			setUser(users.find(user => user.uid === uid));
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
+	const editableData = [
+		{
+			id: 'name',
+			name: 'Full Name',
+			value: user.name
+		},
+
+		{
+			id: 'email',
+			name: 'Email',
+			value: user.email
+		},
+		{
+			id: 'phone',
+			name: 'Phone Number',
+			value: user.phone
+		},
+		{
+			id: 'age',
+			name: 'Age',
+			value: user.age
+		},
+		{
+			id: 'company',
+			name: 'Company',
+			value: user.company
+		},
+		{
+			id: 'address',
+			name: 'Address',
+			value: user.address
+		}
+	];
 	useEffect(() => {
 		fetchUserData();
-	}, []);
+	}, [users]);
 
 	useEffect(() => {
 		setUserProfile({
@@ -68,9 +102,16 @@ const UserDetails = () => {
 	}, [user]);
 
 	const handleEditSubmit = async data => {
-		// Update data to API
-		const getUser = await getUserByEmail(data.email);
-		console.log(getUser);
+		try {
+			dispatch(updateUser(user.uid, data));
+			setShowEditModal(false);
+			toast.success('Successfuly edited the data!');
+		} catch (error) {
+			console.log(error);
+			toast.error(error);
+		}
+
+		fetchUserData();
 	};
 
 	return (
@@ -97,7 +138,7 @@ const UserDetails = () => {
 				</div>
 				{showEditModal && createPortal(
 					<EditDataModal
-						data={additionalInfo}
+						data={editableData}
 						onClose={() => {
 							setShowEditModal(false);
 						}}
@@ -109,4 +150,12 @@ const UserDetails = () => {
 	);
 };
 
-export default UserDetails;
+const mapStateToProps = state => ({
+	users: state.users
+});
+
+UserDetails.propTypes = {
+	users: PropTypes.array
+};
+
+export default connect(mapStateToProps)(UserDetails);

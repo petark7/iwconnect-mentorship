@@ -28,9 +28,8 @@ const RowTable = ({ rows }) => {
 RowTable.propTypes = {
 	rows: PropTypes.arrayOf(PropTypes.shape(
 		{
-			image: PropTypes.string.isRequired,
-			company: PropTypes.string.isRequired,
-			address: PropTypes.string.isRequired
+			name: PropTypes.string,
+			value: PropTypes.node
 		}
 	))
 };

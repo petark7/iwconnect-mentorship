@@ -22,7 +22,7 @@ const RouterComponent = () => (
 
 			<Route element={<RequireAuth allowedRoles="admin" />}>
 				<Route path="/users" element={<UsersPage />} />
-				<Route path="/user-details/:email" element={<UserDetails />} />
+				<Route path="/user-details/:uid" element={<UserDetails />} />
 				<Route path="/venues" element={<VenuesPage />} />
 			</Route>
 

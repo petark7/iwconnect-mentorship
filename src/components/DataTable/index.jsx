@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Table from 'react-bootstrap/Table';
 import { PaginationControl } from 'react-bootstrap-pagination-control';
+import Table from 'react-bootstrap/Table';
 import './index.scss';
 
-const DataTable = ({ columns, rows, itemsPerPage }) => {
-	const navigate = useNavigate();
+const DataTable = ({ columns, rows, itemsPerPage, onClick }) => {
 	const [page, setPage] = useState(1);
 	const [paginatedData, setPaginatedData] = useState([]);
 
@@ -21,7 +19,6 @@ const DataTable = ({ columns, rows, itemsPerPage }) => {
 		setPage(1);
 	}, [itemsPerPage]);
 
-	// !!! MAKE REUSABLE ONCLICK TABLE !!!
 	return (
 		<>
 			<Table striped hover responsive="sm">
@@ -34,7 +31,7 @@ const DataTable = ({ columns, rows, itemsPerPage }) => {
 				</thead>
 				<tbody>
 					{paginatedData.map((row, index) => (
-						<tr key={index} style={{ cursor: 'pointer' }} onClick={() => navigate(`/user-details/${row.email}`)}>
+						<tr key={index} style={{ cursor: 'pointer' }} onClick={() => onClick(row.id)}>
 							{columns.map(column => (
 								<td key={column.key}>{row[column.key]}</td>
 							))}
@@ -60,6 +57,7 @@ const DataTable = ({ columns, rows, itemsPerPage }) => {
 DataTable.propTypes = {
 	rows: PropTypes.array,
 	itemsPerPage: PropTypes.number.isRequired,
-	columns: PropTypes.array.isRequired
+	columns: PropTypes.array.isRequired,
+	onClick: PropTypes.func
 };
 export default DataTable;

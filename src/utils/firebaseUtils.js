@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, query, where, doc, deleteDoc, getDocs, collection, updateDoc } from 'firebase/firestore';
+import { getFirestore, doc, deleteDoc, getDocs, collection, updateDoc } from 'firebase/firestore';
 import { getAuth, signOut, createUserWithEmailAndPassword } from 'firebase/auth';
 import Cookies from 'universal-cookie';
 import firebaseConfig from '../constants/firebaseConfig';
@@ -56,26 +56,12 @@ export const getCollection = async collectionName => {
 	}
 };
 
-export const getUserByEmail = async email => {
+export const updateDocument = async (collectionName, userId, documentData) => {
 	try {
-		const q = query(collection(db, 'users'), where('email', '==', email));
-		const querySnapshot = await getDocs(q);
-
-		if (querySnapshot.empty) {
-			// No matching documents found
-			return null;
-		}
-
-		// Assume there's only one document matching the email
-		const userDoc = querySnapshot.docs[0];
-		const userData = {
-			id: userDoc.id,
-			...userDoc.data()
-		};
-
-		return userData;
+		const docRef = doc(db, collectionName, userId);
+		await updateDoc(docRef, documentData);
 	} catch (error) {
-		console.log('Error getting user by email:', error);
-		return null;
+		console.log(error);
+		throw error;
 	}
 };
