@@ -7,7 +7,8 @@ const userReducer = (state = initialState, action) => {
 		case 'STORE_USERS': {
 			return {
 				...state,
-				users: action.payload };
+				users: action.payload
+			};
 		}
 
 		case 'UPDATE_USER': {

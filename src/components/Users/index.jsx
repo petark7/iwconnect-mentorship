@@ -46,6 +46,7 @@ const Users = () => {
 	}, []);
 
 	const rows = users.map(user => ({
+		id: user.uid,
 		name: user.name,
 		email: user.email,
 		phone: user.phone

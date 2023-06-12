@@ -33,8 +33,9 @@ const Footer = () => {
 					document.body
 				)}
 				<button
-					type="button" className="footerButtonLinks" onClick={() => setShowTerms(true)}
-
+					type="button"
+					className="footerButtonLinks"
+					onClick={() => setShowTerms(true)}
 				>
 					Terms and Conditions
 				</button>

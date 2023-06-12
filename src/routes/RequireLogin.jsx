@@ -7,9 +7,7 @@ const RequireLogin = () => {
 	// Check if user is logged in
 	const loginToken = cookies.get('accessToken');
 
-	return (loginToken) ? (
-		<Outlet />
-	) : (<Navigate replace to="/login" state={{ from: location }} />);
+	return (loginToken) ? <Outlet /> : <Navigate replace to="/login" state={{ from: location }} />;
 };
 
 export default RequireLogin;

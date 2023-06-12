@@ -7,11 +7,8 @@ const DashboardPage = () => {
 	const cookies = new Cookies();
 	const userRole = cookies.get('userRole');
 	// Add admin login check here
-	return (
-		<>
-			{userRole === 'admin' ? <AdminDashboard /> : <UserDashboard />}
-		</>
-	);
+
+	return userRole === 'admin' ? <AdminDashboard /> : <UserDashboard />;
 };
 
 export default DashboardPage;
