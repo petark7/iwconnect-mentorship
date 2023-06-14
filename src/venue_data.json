@@ -1,0 +1,648 @@
+[
+    {
+        "id": 1,
+        "name": "Jetwire",
+        "image": "https://robohash.org/recusandaeasperioresdicta.png?size=1000x1000&set=set1",
+        "description": "Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.",
+        "location": "Apt 504",
+        "available_rooms": [],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 2,
+        "name": "Twinte",
+        "image": "https://robohash.org/veniamsitiste.png?size=1000x1000&set=set1",
+        "description": "Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",
+        "location": "Apt 1327",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "Ekou"
+            },
+            {
+                "id": 2,
+                "name": "Houyu"
+            },
+            {
+                "id": 3,
+                "name": "Bang Rakam"
+            },
+            {
+                "id": 4,
+                "name": "Nerk’in Getashen"
+            },
+            {
+                "id": 5,
+                "name": "Fasi"
+            },
+            {
+                "id": 6,
+                "name": "Hyesan-si"
+            },
+            {
+                "id": 7,
+                "name": "Jeffersonville"
+            }
+        ],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 3,
+        "name": "Zoombox",
+        "image": "https://robohash.org/natusinventorevitae.png?size=1000x1000&set=set1",
+        "description": "Morbi non quam nec dui luctus rutrum. Nulla tellus.",
+        "location": "Apt 497",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "Yinglong"
+            },
+            {
+                "id": 2,
+                "name": "Ishqoshim"
+            },
+            {
+                "id": 3,
+                "name": "Saint Louis"
+            },
+            {
+                "id": 4,
+                "name": "Mesopotam"
+            },
+            {
+                "id": 5,
+                "name": "Nandu"
+            },
+            {
+                "id": 6,
+                "name": "Dongtian"
+            },
+            {
+                "id": 7,
+                "name": "Chendian"
+            },
+            {
+                "id": 8,
+                "name": "Montemor-o-Velho"
+            },
+            {
+                "id": 9,
+                "name": "Deskáti"
+            },
+            {
+                "id": 10,
+                "name": "Zhendong"
+            }
+        ],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 4,
+        "name": "Twitterbeat",
+        "image": "https://robohash.org/voluptatesquianon.png?size=1000x1000&set=set1",
+        "description": "Quisque ut erat. Curabitur gravida nisi at nibh.",
+        "location": "PO Box 1735",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "Ciranca"
+            },
+            {
+                "id": 2,
+                "name": "Kristiansand S"
+            }
+        ],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 5,
+        "name": "Vidoo",
+        "image": "https://robohash.org/cumrerumexplicabo.png?size=1000x1000&set=set1",
+        "description": "Etiam justo.",
+        "location": "Suite 89",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "Vologda"
+            },
+            {
+                "id": 2,
+                "name": "Pampachiri"
+            },
+            {
+                "id": 3,
+                "name": "Šestajovice"
+            }
+        ],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 6,
+        "name": "Yakidoo",
+        "image": "https://robohash.org/distinctiosolutarerum.png?size=1000x1000&set=set1",
+        "description": "Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",
+        "location": "Room 90",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "Mizhhir’ya"
+            },
+            {
+                "id": 2,
+                "name": "Conel"
+            },
+            {
+                "id": 3,
+                "name": "Orerokpe"
+            },
+            {
+                "id": 4,
+                "name": "Ostrowite"
+            },
+            {
+                "id": 5,
+                "name": "Qianjia"
+            },
+            {
+                "id": 6,
+                "name": "Isawa"
+            },
+            {
+                "id": 7,
+                "name": "Towa"
+            },
+            {
+                "id": 8,
+                "name": "Moste"
+            },
+            {
+                "id": 9,
+                "name": "Kawaliwu"
+            }
+        ],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 7,
+        "name": "Aibox",
+        "image": "https://robohash.org/undeetqui.png?size=1000x1000&set=set1",
+        "description": "Aliquam non mauris. Morbi non lectus.",
+        "location": "PO Box 13855",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "Vacov"
+            },
+            {
+                "id": 2,
+                "name": "Wangdain"
+            }
+        ],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 8,
+        "name": "Skyble",
+        "image": "https://robohash.org/possimusminimamaxime.png?size=1000x1000&set=set1",
+        "description": "Donec quis orci eget orci vehicula condimentum.",
+        "location": "10th Floor",
+        "available_rooms": [],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 9,
+        "name": "Skimia",
+        "image": "https://robohash.org/accusamusnostrumfugit.png?size=1000x1000&set=set1",
+        "description": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
+        "location": "4th Floor",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "Cabangahan"
+            },
+            {
+                "id": 2,
+                "name": "Czarnożyły"
+            },
+            {
+                "id": 3,
+                "name": "Melaka"
+            },
+            {
+                "id": 4,
+                "name": "Arpajon"
+            },
+            {
+                "id": 5,
+                "name": "Zhangcaizhuang"
+            },
+            {
+                "id": 6,
+                "name": "Skidal’"
+            }
+        ],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 10,
+        "name": "Divape",
+        "image": "https://robohash.org/impeditcommodiitaque.png?size=1000x1000&set=set1",
+        "description": "Nulla tellus. In sagittis dui vel nisl. Duis ac nibh.",
+        "location": "13th Floor",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "Carolina"
+            },
+            {
+                "id": 2,
+                "name": "Palaióchora"
+            },
+            {
+                "id": 3,
+                "name": "Colmeal"
+            },
+            {
+                "id": 4,
+                "name": "Meybod"
+            },
+            {
+                "id": 5,
+                "name": "Lirung"
+            },
+            {
+                "id": 6,
+                "name": "Al Qurayn"
+            },
+            {
+                "id": 7,
+                "name": "Gostimë"
+            },
+            {
+                "id": 8,
+                "name": "Sindanghayu"
+            },
+            {
+                "id": 9,
+                "name": "Putrajawa"
+            },
+            {
+                "id": 10,
+                "name": "Strasbourg"
+            }
+        ],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 11,
+        "name": "Zoomcast",
+        "image": "https://robohash.org/similiqueveniamvitae.png?size=1000x1000&set=set1",
+        "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.",
+        "location": "Apt 1848",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "New York City"
+            },
+            {
+                "id": 2,
+                "name": "Thanh Chương"
+            },
+            {
+                "id": 3,
+                "name": "Tawangrejo"
+            },
+            {
+                "id": 4,
+                "name": "Nanhe"
+            },
+            {
+                "id": 5,
+                "name": "Bihać"
+            },
+            {
+                "id": 6,
+                "name": "Baranów"
+            }
+        ],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 12,
+        "name": "Blogpad",
+        "image": "https://robohash.org/voluptassedvelit.png?size=1000x1000&set=set1",
+        "description": "Morbi non quam nec dui luctus rutrum. Nulla tellus.",
+        "location": "Room 455",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "Boise"
+            },
+            {
+                "id": 2,
+                "name": "Zapolyarnyy"
+            },
+            {
+                "id": 3,
+                "name": "Xiugu"
+            },
+            {
+                "id": 4,
+                "name": "Tanxi"
+            },
+            {
+                "id": 5,
+                "name": "Otofuke"
+            },
+            {
+                "id": 6,
+                "name": "Sanli"
+            },
+            {
+                "id": 7,
+                "name": "Yaopi"
+            },
+            {
+                "id": 8,
+                "name": "Louredo"
+            }
+        ],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 13,
+        "name": "Flipbug",
+        "image": "https://robohash.org/accusamusfacereet.png?size=1000x1000&set=set1",
+        "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.",
+        "location": "Apt 1263",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "Padre Bernardo"
+            },
+            {
+                "id": 2,
+                "name": "Bangkal"
+            },
+            {
+                "id": 3,
+                "name": "Wuku"
+            },
+            {
+                "id": 4,
+                "name": "Consuelo"
+            },
+            {
+                "id": 5,
+                "name": "Inawashiro"
+            },
+            {
+                "id": 6,
+                "name": "Xiaohebian"
+            },
+            {
+                "id": 7,
+                "name": "Sungai Iyu"
+            },
+            {
+                "id": 8,
+                "name": "Għaxaq"
+            },
+            {
+                "id": 9,
+                "name": "Gondang"
+            }
+        ],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 14,
+        "name": "Zoomdog",
+        "image": "https://robohash.org/voluptatumatnemo.png?size=1000x1000&set=set1",
+        "description": "Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
+        "location": "Suite 16",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "Maiwal"
+            },
+            {
+                "id": 2,
+                "name": "Camp Diable"
+            },
+            {
+                "id": 3,
+                "name": "Fujieda"
+            },
+            {
+                "id": 4,
+                "name": "Heishan"
+            },
+            {
+                "id": 5,
+                "name": "Tiantai Chengguanzhen"
+            },
+            {
+                "id": 6,
+                "name": "Quimistán"
+            },
+            {
+                "id": 7,
+                "name": "Gazimurskiy Zavod"
+            }
+        ],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 15,
+        "name": "Abatz",
+        "image": "https://robohash.org/esteosesse.png?size=1000x1000&set=set1",
+        "description": "Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.",
+        "location": "8th Floor",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "Miłakowo"
+            },
+            {
+                "id": 2,
+                "name": "Esquipulas"
+            },
+            {
+                "id": 3,
+                "name": "Santa Anita"
+            },
+            {
+                "id": 4,
+                "name": "Hita"
+            },
+            {
+                "id": 5,
+                "name": "Halmstad"
+            }
+        ],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 16,
+        "name": "Plajo",
+        "image": "https://robohash.org/repudiandaesuscipitbeatae.png?size=1000x1000&set=set1",
+        "description": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.",
+        "location": "Room 319",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "Gongfang"
+            },
+            {
+                "id": 2,
+                "name": "Don Carlos"
+            },
+            {
+                "id": 3,
+                "name": "Anhua Daying"
+            },
+            {
+                "id": 4,
+                "name": "Dengjiang"
+            },
+            {
+                "id": 5,
+                "name": "Pilar"
+            },
+            {
+                "id": 6,
+                "name": "Tumxuk"
+            },
+            {
+                "id": 7,
+                "name": "Sukasirna"
+            },
+            {
+                "id": 8,
+                "name": "Abengourou"
+            }
+        ],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 17,
+        "name": "Zoombox",
+        "image": "https://robohash.org/perspiciatisrepudiandaearchitecto.png?size=1000x1000&set=set1",
+        "description": "Nulla tellus. In sagittis dui vel nisl.",
+        "location": "Apt 1309",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "Kuiyong"
+            },
+            {
+                "id": 2,
+                "name": "Krayen"
+            },
+            {
+                "id": 3,
+                "name": "Manevychi"
+            },
+            {
+                "id": 4,
+                "name": "Rennes"
+            },
+            {
+                "id": 5,
+                "name": "Cruz das Almas"
+            },
+            {
+                "id": 6,
+                "name": "Fresno"
+            }
+        ],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 18,
+        "name": "Avamm",
+        "image": "https://robohash.org/dolorestqui.png?size=1000x1000&set=set1",
+        "description": "Vivamus tortor. Duis mattis egestas metus. Aenean fermentum.",
+        "location": "Suite 60",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "Phoenix"
+            },
+            {
+                "id": 2,
+                "name": "Pécs"
+            },
+            {
+                "id": 3,
+                "name": "Yoshida-kasugachō"
+            },
+            {
+                "id": 4,
+                "name": "Radekhiv"
+            }
+        ],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 19,
+        "name": "Eamia",
+        "image": "https://robohash.org/eiuslaborumaut.png?size=1000x1000&set=set1",
+        "description": "In congue. Etiam justo.",
+        "location": "Room 1918",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "Włocławek"
+            },
+            {
+                "id": 2,
+                "name": "Klayusiwalan"
+            },
+            {
+                "id": 3,
+                "name": "Damatulan"
+            },
+            {
+                "id": 4,
+                "name": "Dogarmo"
+            },
+            {
+                "id": 5,
+                "name": "Zhongzuiling"
+            }
+        ],
+        "unavailable_rooms": []
+    },
+    {
+        "id": 20,
+        "name": "Viva",
+        "image": "https://robohash.org/corporisaperiamnumquam.png?size=1000x1000&set=set1",
+        "description": "Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus.",
+        "location": "Suite 43",
+        "available_rooms": [
+            {
+                "id": 1,
+                "name": "Sulitair"
+            },
+            {
+                "id": 2,
+                "name": "Tidaholm"
+            },
+            {
+                "id": 3,
+                "name": "Springbok"
+            },
+            {
+                "id": 4,
+                "name": "Sayapullo"
+            },
+            {
+                "id": 5,
+                "name": "Kamo"
+            }
+        ],
+        "unavailable_rooms": []
+    }
+]

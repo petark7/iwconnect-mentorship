@@ -1,56 +1,40 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { toast } from 'react-hot-toast';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Layout from '../../components/Layout';
 import DataTable from '../../components/DataTable';
 import InviteUserModal from '../../components/InviteUserModal';
 import ItemsPerPageControl from '../../components/ItemsPerPage';
 import Modal from '../../components/Modal';
-import { deleteUser, getCollection } from '../../utils/firebaseUtils';
-import { storeUsers } from '../../store/actions/userActions';
+import { fetchUsers, deleteUser } from '../../store/actions/userActions';
 
-const Users = () => {
-	const dispatch = useDispatch();
+const Users = ({ users }) => {
 	const navigate = useNavigate();
-	const users = useSelector(state => state.users);
+	const dispatch = useDispatch();
 
 	// MODAL STATE
 	const [inviteUser, setInviteUser] = useState(false);
 	const [deleteUserModal, setDeleteUserModal] = useState({
 		userID: null
 	});
-
 	const [itemsPerPage, setItemsPerPage] = useState(20); // For pagination
 
 	const handleTableClick = userID => {
 		navigate(`/user-details/${userID}`);
 	};
 
-	const fetchUsers = async () => {
-		try {
-			// Get data from API and set to Redux
-			const users = await getCollection('users');
-			dispatch(storeUsers(users));
-		} catch (error) {
-			console.log('Error getting users:', error);
-		}
-	};
-
 	useEffect(() => {
-		// FETCH DATA FROM API IF HASN'T ALREADY FETCHED
-		if (users.length === 0) {
-			fetchUsers();
-		}
-	}, []);
+		dispatch(fetchUsers());
+	}, [users]);
 
 	const deleteUserFromDB = async () => {
 		const { userID } = deleteUserModal;
 		try {
-			deleteUser(userID);
-			fetchUsers(); // Refresh table
+			dispatch(deleteUser(userID));
 			setDeleteUserModal(false); // Close modal
 			toast.success('User deleted succesffully.');
 		} catch (error) {
@@ -59,7 +43,7 @@ const Users = () => {
 		}
 	};
 
-	const rows = users.map(user => {
+	const rows = users?.map(user => {
 		const deleteButton = (
 			<Button
 				variant="danger" onClick={event => {
@@ -128,4 +112,12 @@ const Users = () => {
 	);
 };
 
-export default Users;
+const mapStateToProps = state => ({
+	users: state.user.users
+});
+
+Users.propTypes = {
+	users: PropTypes.array
+};
+
+export default connect(mapStateToProps)(Users);

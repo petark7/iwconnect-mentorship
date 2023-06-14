@@ -10,7 +10,7 @@ const InviteUserModal = ({ toggleModal, isModalShown }) => {
 	const handleSubmit = async event => {
 		event.preventDefault();
 		try {
-			await axios.post('https://run.mocky.io/v3/b1855737-fff4-4baa-a207-91f6671a1bf8');
+			await axios.post('https://run.mocky.io/v3/b1855737-fff4-4baa-a207-91f66adssad71a1bf8');
 			toast.success('Invite sent successfully!');
 			toggleModal(false);
 		} catch (error) {

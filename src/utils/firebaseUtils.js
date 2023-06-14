@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, deleteDoc, getDocs, collection, updateDoc } from 'firebase/firestore';
+import { getFirestore, setDoc, doc, deleteDoc, getDocs, collection, updateDoc } from 'firebase/firestore';
 import { getAuth, signOut, createUserWithEmailAndPassword } from 'firebase/auth';
 import Cookies from 'universal-cookie';
 import firebaseConfig from '../constants/firebaseConfig';
@@ -60,6 +60,16 @@ export const updateDocument = async (collectionName, userId, documentData) => {
 	try {
 		const docRef = doc(db, collectionName, userId);
 		await updateDoc(docRef, documentData);
+	} catch (error) {
+		console.log(error);
+		throw error;
+	}
+};
+
+export const addDocument = async (collectionName, id, documentData) => {
+	try {
+		await setDoc(doc(db, collectionName, id), documentData);
+		console.log(`Successfully added document in ${collectionName}`);
 	} catch (error) {
 		console.log(error);
 		throw error;

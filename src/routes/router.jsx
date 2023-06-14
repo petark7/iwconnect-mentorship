@@ -10,6 +10,7 @@ import UnauthorizedPage from '../pages/unauthorized';
 import UsersPage from '../pages/users';
 import VenuesPage from '../pages/venues';
 import UserDetails from '../pages/user-details';
+import VenueDetails from '../pages/venue-details';
 import RequireLogin from './RequireLogin';
 import RequireAuth from './RequireAuth';
 
@@ -24,6 +25,8 @@ const RouterComponent = () => (
 				<Route path="/users" element={<UsersPage />} />
 				<Route path="/user-details/:uid" element={<UserDetails />} />
 				<Route path="/venues" element={<VenuesPage />} />
+				<Route path="/venue-details/:venueID" element={<VenueDetails />} />
+
 			</Route>
 
 			<Route path="/login" element={<LoginPage />} />

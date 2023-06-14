@@ -151,7 +151,7 @@ const UserDetails = ({ users }) => {
 };
 
 const mapStateToProps = state => ({
-	users: state.users
+	users: state.user.users
 });
 
 UserDetails.propTypes = {
