@@ -4,9 +4,9 @@ import { getAuth, signOut, createUserWithEmailAndPassword } from 'firebase/auth'
 import Cookies from 'universal-cookie';
 import firebaseConfig from '../constants/firebaseConfig';
 
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
 const auth = getAuth();
-const db = getFirestore(app);
 const cookies = new Cookies();
 
 export const addUser = async (email, password) => {

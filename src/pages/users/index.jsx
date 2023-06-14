@@ -1,57 +1,34 @@
 import { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import Button from 'react-bootstrap/Button';
-import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Layout from '../../components/Layout';
 import DataTable from '../../components/DataTable';
 import InviteUserModal from '../../components/InviteUserModal';
 import ItemsPerPageControl from '../../components/ItemsPerPage';
 import Modal from '../../components/Modal';
-import { deleteUser, getCollection } from '../../utils/firebaseUtils';
-import { storeUsers } from '../../store/actions/userActions';
+import { columns } from '../../constants/usersTable';
+import { fetchUsers, deleteUser } from '../../store/actions/userActions';
 
-const Users = () => {
+const Users = ({ users }) => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const users = useSelector(state => state.users);
 
-	// MODAL STATE
 	const [inviteUser, setInviteUser] = useState(false);
-	const [deleteUserModal, setDeleteUserModal] = useState({
-		userID: null
-	});
-
+	const [selectedUserId, setSelectedUserId] = useState(0);
 	const [itemsPerPage, setItemsPerPage] = useState(20); // For pagination
 
-	const handleTableClick = userID => {
-		navigate(`/user-details/${userID}`);
-	};
-
-	const fetchUsers = async () => {
-		try {
-			// Get data from API and set to Redux
-			const users = await getCollection('users');
-			dispatch(storeUsers(users));
-		} catch (error) {
-			console.log('Error getting users:', error);
-		}
-	};
-
 	useEffect(() => {
-		// FETCH DATA FROM API IF HASN'T ALREADY FETCHED
-		if (users.length === 0) {
-			fetchUsers();
-		}
-	}, []);
+		dispatch(fetchUsers());
+	}, [users]);
 
 	const deleteUserFromDB = async () => {
-		const { userID } = deleteUserModal;
+		const userID = selectedUserId;
 		try {
-			deleteUser(userID);
-			fetchUsers(); // Refresh table
-			setDeleteUserModal(false); // Close modal
+			dispatch(deleteUser(userID));
+			setSelectedUserId(0); // Close modal
 			toast.success('User deleted succesffully.');
 		} catch (error) {
 			console.log(error);
@@ -64,11 +41,12 @@ const Users = () => {
 			<Button
 				variant="danger" onClick={event => {
 					event.stopPropagation();
-					setDeleteUserModal({ userID: user.uid });
+					setSelectedUserId(user.uid);
 				}}
 			>Delete
 			</Button>
 		);
+
 		return 	({
 			id: user.uid,
 			name: user.name,
@@ -77,25 +55,6 @@ const Users = () => {
 			actions: deleteButton
 		});
 	});
-
-	const columns = [
-		{
-			title: 'User',
-			key: 'name'
-		},
-		{
-			title: 'Email',
-			key: 'email'
-		},
-		{
-			title: 'Phone',
-			key: 'phone'
-		},
-		{
-			title: 'Actions',
-			key: 'actions'
-		}
-	];
 
 	return (
 		<Layout>
@@ -108,24 +67,42 @@ const Users = () => {
 				>
 					Invite User
 				</Button>
-				<ItemsPerPageControl itemsPerPage={setItemsPerPage} />
+				<ItemsPerPageControl onSelect={setItemsPerPage} />
 			</div>
 			<InviteUserModal toggleModal={setInviteUser} isModalShown={inviteUser} />
-			<DataTable columns={columns} rows={rows} itemsPerPage={itemsPerPage} onClick={handleTableClick} />
+			<DataTable
+				columns={columns}
+				rows={rows}
+				itemsPerPage={itemsPerPage}
+				onClick={userID => navigate(`/user-details/${userID}`)}
+			/>
 
-			{ Boolean(deleteUserModal.userID)
-			&& createPortal(
+			{Boolean(selectedUserId) && (
 				<Modal
-					isOpened={setDeleteUserModal} title="Delete user"
+					isOpened={setSelectedUserId}
+					title="Delete user"
 				>
 					<p>Are you sure you want to delete this user?</p>
 					<div className="d-flex justify-content-end gap-1">
-						<Button variant="success" onClick={deleteUserFromDB}>Yes</Button>
-						<Button variant="danger" onClick={() => setDeleteUserModal(false)}>Cancel</Button>
+						<Button variant="success" onClick={deleteUserFromDB}>
+							Yes
+						</Button>
+						<Button variant="danger" onClick={() => setSelectedUserId(0)}>
+							Cancel
+						</Button>
 					</div>
-				</Modal>, document.body)}
+				</Modal>
+			)}
 		</Layout>
 	);
 };
 
-export default Users;
+const mapStateToProps = state => ({
+	users: state.user.users
+});
+
+Users.propTypes = {
+	users: PropTypes.array
+};
+
+export default connect(mapStateToProps)(Users);

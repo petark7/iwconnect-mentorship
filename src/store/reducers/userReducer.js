@@ -1,13 +1,34 @@
 const initialState = {
-	users: []
+	users: [],
+	loading: false,
+	error: null
 };
 
 const userReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case 'STORE_USERS': {
+		case 'FETCH_USERS_SUCCESS': {
 			return {
 				...state,
-				users: action.payload
+				users: action.payload,
+				loading: false,
+				error: null
+			};
+		}
+
+		case 'FETCH_USERS_FAILURE': {
+			return {
+				...state,
+				users: [],
+				loading: false,
+				error: action.payload
+			};
+		}
+
+		case 'FETCH_USERS_FROM_STORE': {
+			return {
+				...state,
+				loading: false,
+				error: null
 			};
 		}
 
@@ -29,6 +50,15 @@ const userReducer = (state = initialState, action) => {
 			};
 		}
 
+		case 'DELETE_USER': {
+			const userID = action.payload.id;
+			const updatedUsers = state.users.filter(user => user.id !== userID);
+			return {
+				...state,
+				users: updatedUsers
+			};
+		}
+
 		default: {
 			return state;
 		}
@@ -36,4 +66,3 @@ const userReducer = (state = initialState, action) => {
 };
 
 export default userReducer;
-

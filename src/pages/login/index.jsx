@@ -1,18 +1,15 @@
 import { useNavigate } from 'react-router';
-import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import Cookies from 'universal-cookie';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import firebaseConfig from '../../constants/firebaseConfig';
+import { db } from '../../utils/firebaseUtils';
 import './login.scss';
 
-const app = initializeApp(firebaseConfig);
 const auth = getAuth();
-const db = getFirestore(app);
 const Login = () => {
 	const navigate = useNavigate();
 	const cookies = new Cookies();
@@ -23,7 +20,7 @@ const Login = () => {
 		formState: { errors }
 	} = useForm();
 
-	// TRANSFER TO SIGNUP PAGE
+	// TODO: TRANSFER TO SIGNUP PAGE
 	// Add logged in user to the database
 	//
 	// const addToDatabase = () => {
@@ -51,7 +48,6 @@ const Login = () => {
 		const docRef = doc(db, 'users', userData.uid); // Ref to the user
 		const docSnap = await getDoc(docRef); // Snapshot to the document
 
-		// Saves the role in the Redux Store
 		if (docSnap.exists()) {
 			cookies.set('userRole', docSnap.data().role, { path: '/' });
 			navigate('/');
@@ -61,18 +57,11 @@ const Login = () => {
 	};
 
 	const formSubmit = async data => {
-		try {
-			const userCredential = await signInWithEmailAndPassword(auth, data.email, data.password);
-			const user = userCredential.user;
-			toast.success('Logged in!');
-			cookies.set('accessToken', user.accessToken, { maxAge: 3600 });
-			// Upon successful login, set role to Redux store
-			fetchUserRoles(user);
-		} catch (error) {
-			// Can implement better error handling
-			toast.error('Oops, it looks like you entered wrong credentials.');
-			console.log(error);
-		}
+		const userCredential = await signInWithEmailAndPassword(auth, data.email, data.password);
+		const user = userCredential.user;
+		toast.success('Logged in!');
+		cookies.set('accessToken', user.accessToken, { maxAge: 3600 });
+		fetchUserRoles(user);
 	};
 
 	return (

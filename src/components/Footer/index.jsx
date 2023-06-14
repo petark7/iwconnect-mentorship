@@ -1,4 +1,3 @@
-import { createPortal } from 'react-dom';
 import { useState } from 'react';
 import Modal from '../Modal';
 import privacyPolicyTextData from '../../data/privacyPolicy.json';
@@ -13,24 +12,22 @@ const Footer = () => {
 	return (
 		<footer className="bg-dark text-dark text-center py-3">
 			<div className="d-flex justify-content-center gap-3">
-				{showPrivacyPolicy && createPortal(
+				{showPrivacyPolicy && (
 					<Modal title="Privacy Policy" isOpened={setShowPrivacyPolicy}>
 						<RenderText textObject={privacyPolicyTextData} />
-					</Modal>,
-					document.body
+					</Modal>
 				)}
 				<button
-					type="button" className="footerButtonLinks" onClick={() => {
-						setShowPrivacyPolicy(true);
-					}}
+					type="button"
+					className="footerButtonLinks"
+					onClick={() => setShowPrivacyPolicy(true)}
 				>
 					Privacy Policy
 				</button>
-				{showTerms && createPortal(
+				{showTerms && (
 					<Modal title="Terms and Conditions" isOpened={setShowTerms}>
 						<RenderText textObject={termsAndCondTextData} />
-					</Modal>,
-					document.body
+					</Modal>
 				)}
 				<button
 					type="button"
