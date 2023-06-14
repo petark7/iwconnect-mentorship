@@ -1,8 +1,4 @@
-const initialState = {
-	users: [],
-	loading: false,
-	error: null
-};
+import { initialState } from './initialState';
 
 const userReducer = (state = initialState, action) => {
 	switch (action.type) {

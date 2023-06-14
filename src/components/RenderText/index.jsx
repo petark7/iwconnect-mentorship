@@ -4,11 +4,10 @@ const RenderText = ({ textObject }) => textObject.map(sentence => <p key={senten
 
 RenderText.propTypes = {
 	textObject: PropTypes.arrayOf(
-		PropTypes.shape(
-			{
-				id: PropTypes.number,
-				text: PropTypes.string
-			}))
+		PropTypes.shape({
+			id: PropTypes.number,
+			text: PropTypes.string
+		})
+	)
 };
-
 export default RenderText;

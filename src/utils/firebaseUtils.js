@@ -13,7 +13,7 @@ export const addUser = async (email, password) => {
 	try {
 		const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 		const { user } = userCredential;
-		console.log(`Added user successfuly. ${user.email}`);
+		return user;
 	} catch (error) {
 		const errorCode = error.code;
 		const errorMessage = error.message;

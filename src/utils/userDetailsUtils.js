@@ -1,4 +1,3 @@
-
 export const getEditableUserData = user => [
 	{
 		id: 'name',

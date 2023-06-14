@@ -1,3 +1,5 @@
 export const initialState = {
-	users: []
+	users: [],
+	loading: false,
+	error: null
 };

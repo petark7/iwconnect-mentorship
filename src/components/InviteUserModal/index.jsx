@@ -2,13 +2,13 @@ import { toast } from 'react-hot-toast';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import instance from '../../axiosInterceptors';
+import axiosInstance from '../../axiosInterceptors';
 import Modal from '../Modal';
 
 const InviteUserModal = ({ toggleModal, isModalShown }) => {
 	const handleSubmit = async event => {
 		event.preventDefault();
-		await instance.post('https://run.mocky.io/v3/df1f042a-5a26-4460-8524-e0bbc0f00812');
+		await axiosInstance.post('https://run.mocky.io/v3/df1f042a-5a26-4460-8524-e0bbc0f00812');
 		toast.success('Invite sent successfully!');
 		toggleModal(false);
 	};
@@ -26,7 +26,7 @@ const InviteUserModal = ({ toggleModal, isModalShown }) => {
 							<Button type="submit">Send invitation</Button>
 						</Form.Group>
 					</Form>
-				</Modal>}
+       </Modal>}
 		</>
 	);
 };

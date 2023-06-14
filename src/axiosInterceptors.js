@@ -1,15 +1,15 @@
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
-const instance = axios.create();
+const axiosInstance = axios.create();
 // Request interceptor
-instance.interceptors.request.use(
+axiosInstance.interceptors.request.use(
 	config => config,
 	error => Promise.reject(error) // Request errors can be handled here
 );
 
 // Response interceptor
-instance.interceptors.response.use(
+axiosInstance.interceptors.response.use(
 	response => response,
 	error => {
 		if (error.response) {
@@ -27,4 +27,4 @@ instance.interceptors.response.use(
 	}
 );
 
-export default instance;
+export default axiosInstance;
