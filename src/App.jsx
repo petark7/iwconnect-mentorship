@@ -1,17 +1,13 @@
-import { useState } from 'react'
+import { Toaster } from 'react-hot-toast';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Router from './routes/router';
+import './App.css';
 
-import './App.css'
+const App = () => (
+	<>
+		<Toaster />
+		<Router />
+	</>
+);
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        Hello world!   
-      </div>
-    </>
-  )
-}
-
-export default App
+export default App;
