@@ -1,23 +1,23 @@
 import { useEffect } from 'react';
 import { GrClose } from 'react-icons/gr';
 import PropTypes from 'prop-types';
-import './index.css';
+import Portal from '../Portal';
+import useScrollBlock from '../../hooks/useScrollBlock';
+import './index.scss';
 
 const Modal = ({ isOpened, title, children, customStyling }) => {
+	const [blockScroll, allowScroll] = useScrollBlock();
 	useEffect(() => {
-		document.body.style.overflow = 'hidden';
+		blockScroll();
 		return () => {
-			document.body.style.overflow = 'unset';
+			allowScroll();
 		};
 	}, []);
 
 	return (
-		<>
-			<div
-				className="modal-overlay" onClick={() => {
-					isOpened(false);
-				}} />
-			<div className="modal-container">
+		<Portal>
+			<div className="modal-overlay" onClick={() => isOpened(false)} />
+			<div className={`modal-container ${customStyling}`}>
 				<div className="modal-closeButton">
 					<GrClose onClick={() => {
 						isOpened(false);
@@ -26,13 +26,15 @@ const Modal = ({ isOpened, title, children, customStyling }) => {
 				<h1 className="modal-heading">{title}</h1>
 				{children}
 			</div>
-		</>
+		</Portal>
 	);
 };
 
 Modal.propTypes = {
+	customStyling: PropTypes.string,
 	isOpened: PropTypes.func,
 	title: PropTypes.string,
 	children: PropTypes.node
 };
+
 export default Modal;

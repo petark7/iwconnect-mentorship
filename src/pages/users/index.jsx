@@ -1,41 +1,34 @@
 import { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
 import { connect, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import Button from 'react-bootstrap/Button';
-import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Layout from '../../components/Layout';
 import DataTable from '../../components/DataTable';
 import InviteUserModal from '../../components/InviteUserModal';
 import ItemsPerPageControl from '../../components/ItemsPerPage';
 import Modal from '../../components/Modal';
+import { columns } from '../../constants/usersTable';
 import { fetchUsers, deleteUser } from '../../store/actions/userActions';
 
 const Users = ({ users }) => {
-	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
-	// MODAL STATE
 	const [inviteUser, setInviteUser] = useState(false);
-	const [deleteUserModal, setDeleteUserModal] = useState({
-		userID: null
-	});
+	const [selectedUserId, setSelectedUserId] = useState(0);
 	const [itemsPerPage, setItemsPerPage] = useState(20); // For pagination
-
-	const handleTableClick = userID => {
-		navigate(`/user-details/${userID}`);
-	};
 
 	useEffect(() => {
 		dispatch(fetchUsers());
 	}, [users]);
 
 	const deleteUserFromDB = async () => {
-		const { userID } = deleteUserModal;
+		const userID = selectedUserId;
 		try {
 			dispatch(deleteUser(userID));
-			setDeleteUserModal(false); // Close modal
+			setSelectedUserId(0); // Close modal
 			toast.success('User deleted succesffully.');
 		} catch (error) {
 			console.log(error);
@@ -48,11 +41,12 @@ const Users = ({ users }) => {
 			<Button
 				variant="danger" onClick={event => {
 					event.stopPropagation();
-					setDeleteUserModal({ userID: user.uid });
+					setSelectedUserId(user.uid);
 				}}
 			>Delete
 			</Button>
 		);
+
 		return 	({
 			id: user.uid,
 			name: user.name,
@@ -61,25 +55,6 @@ const Users = ({ users }) => {
 			actions: deleteButton
 		});
 	});
-
-	const columns = [
-		{
-			title: 'User',
-			key: 'name'
-		},
-		{
-			title: 'Email',
-			key: 'email'
-		},
-		{
-			title: 'Phone',
-			key: 'phone'
-		},
-		{
-			title: 'Actions',
-			key: 'actions'
-		}
-	];
 
 	return (
 		<Layout>
@@ -92,22 +67,32 @@ const Users = ({ users }) => {
 				>
 					Invite User
 				</Button>
-				<ItemsPerPageControl itemsPerPage={setItemsPerPage} />
+				<ItemsPerPageControl onSelect={setItemsPerPage} />
 			</div>
 			<InviteUserModal toggleModal={setInviteUser} isModalShown={inviteUser} />
-			<DataTable columns={columns} rows={rows} itemsPerPage={itemsPerPage} onClick={handleTableClick} />
+			<DataTable
+				columns={columns}
+				rows={rows}
+				itemsPerPage={itemsPerPage}
+				onClick={userID => navigate(`/user-details/${userID}`)}
+			/>
 
-			{ Boolean(deleteUserModal.userID)
-			&& createPortal(
+			{Boolean(selectedUserId) && (
 				<Modal
-					isOpened={setDeleteUserModal} title="Delete user"
+					isOpened={setSelectedUserId}
+					title="Delete user"
 				>
 					<p>Are you sure you want to delete this user?</p>
 					<div className="d-flex justify-content-end gap-1">
-						<Button variant="success" onClick={deleteUserFromDB}>Yes</Button>
-						<Button variant="danger" onClick={() => setDeleteUserModal(false)}>Cancel</Button>
+						<Button variant="success" onClick={deleteUserFromDB}>
+							Yes
+						</Button>
+						<Button variant="danger" onClick={() => setSelectedUserId(0)}>
+							Cancel
+						</Button>
 					</div>
-				</Modal>, document.body)}
+				</Modal>
+			)}
 		</Layout>
 	);
 };

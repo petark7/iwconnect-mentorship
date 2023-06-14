@@ -1,7 +1,7 @@
 import { Toaster } from 'react-hot-toast';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Router from './routes/router';
-import './app.css';
+import './App.css';
 
 const App = () => (
 	<>

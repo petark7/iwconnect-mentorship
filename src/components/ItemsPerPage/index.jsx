@@ -1,24 +1,34 @@
 import Form from 'react-bootstrap/Form';
 import PropTypes from 'prop-types';
+import { itemsPerPage } from '../../constants/itemsPerPage';
 import './index.scss';
 
-const ItemsPerPage = ({ itemsPerPage }) => (
-	<div className="showItemsDiv">
-		<p className="showPerPageText">Show per page</p>
-		<Form.Select
-			className="showPerPageSelect"
-			aria-label="Items per page"
-			onChange={event => itemsPerPage(event.target.value)}
+const ItemsPerPage = ({ onSelect }) => {
+	const selectOptions = itemsPerPage.map(element => (
+		<option
+			key={element.id}
+			value={element.value}
 		>
-			<option value="20">20</option>
-			<option value="40">40</option>
-			<option value="60">60</option>
-		</Form.Select>
-	</div>
-);
+			{element.label}
+		</option>
+	));
+
+	return (
+		<div className="showItemsDiv">
+			<p className="showPerPageText">Show per page</p>
+			<Form.Select
+				className="showPerPageSelect"
+				aria-label="Items per page"
+				onChange={event => onSelect(event.target.value)}
+			>
+				{selectOptions}
+			</Form.Select>
+		</div>
+	);
+};
 
 ItemsPerPage.propTypes = {
-	itemsPerPage: PropTypes.func
+	onSelect: PropTypes.func
 };
 
 export default ItemsPerPage;

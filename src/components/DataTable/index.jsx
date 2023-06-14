@@ -24,14 +24,14 @@ const DataTable = ({ columns, rows, itemsPerPage, onClick }) => {
 			<Table striped hover responsive="sm">
 				<thead>
 					<tr>
-						{columns.map((element, index) => (
-							<th key={index}>{element.title}</th>
+						{columns.map(element => (
+							<th key={element.key}>{element.title}</th>
 						))}
 					</tr>
 				</thead>
 				<tbody>
-					{paginatedData.map((row, index) => (
-						<tr key={index} style={{ cursor: 'pointer' }} onClick={() => onClick(row.id)}>
+					{paginatedData.map(row => (
+						<tr key={row.key} style={{ cursor: 'pointer' }} onClick={() => onClick(row.id)}>
 							{columns.map(column => (
 								<td key={column.key}>{row[column.key]}</td>
 							))}
@@ -45,9 +45,7 @@ const DataTable = ({ columns, rows, itemsPerPage, onClick }) => {
 				between={4}
 				total={rows.length}
 				limit={itemsPerPage}
-				changePage={page => {
-					setPage(page);
-				}}
+				changePage={page => setPage(page)}
 				ellipsis={2}
 			/>
 		</>
@@ -59,5 +57,9 @@ DataTable.propTypes = {
 	itemsPerPage: PropTypes.number.isRequired,
 	columns: PropTypes.array.isRequired,
 	onClick: PropTypes.func
+};
+
+DataTable.defaultProps = {
+	rows: []
 };
 export default DataTable;

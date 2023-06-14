@@ -1,6 +1,5 @@
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
-import { createPortal } from 'react-dom';
 import { useDispatch, connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
@@ -10,6 +9,7 @@ import RowTable from '../../components/RowTable';
 import UserProfile from '../../components/UserProfile';
 import EditDataModal from '../../components/EditDataModal';
 import { updateUser } from '../../store/actions/userActions';
+import { getEditableUserData, getAdditionalDetails } from '../../utils/userDetailsUtils';
 import './index.scss';
 
 const UserDetails = ({ users }) => {
@@ -20,47 +20,10 @@ const UserDetails = ({ users }) => {
 	const [userProfile, setUserProfile] = useState({});
 	const [additionalInfo, setAdditionalInfo] = useState([]);
 
-	const fetchUserData = async () => {
-		try {
-			setUser(users.find(user => user.uid === uid));
-		} catch (error) {
-			console.log(error);
-		}
+	const fetchUserData = () => {
+		setUser(users.find(user => user.uid === uid));
 	};
 
-	const editableData = [
-		{
-			id: 'name',
-			name: 'Full Name',
-			value: user.name
-		},
-
-		{
-			id: 'email',
-			name: 'Email',
-			value: user.email
-		},
-		{
-			id: 'phone',
-			name: 'Phone Number',
-			value: user.phone
-		},
-		{
-			id: 'age',
-			name: 'Age',
-			value: user.age
-		},
-		{
-			id: 'company',
-			name: 'Company',
-			value: user.company
-		},
-		{
-			id: 'address',
-			name: 'Address',
-			value: user.address
-		}
-	];
 	useEffect(() => {
 		fetchUserData();
 	}, [users]);
@@ -75,43 +38,13 @@ const UserDetails = ({ users }) => {
 	}, [user]);
 
 	useEffect(() => {
-		const formattedInfo = [
-			{
-				id: 'name',
-				name: 'Full Name',
-				value: user.name
-			},
-
-			{
-				id: 'email',
-				name: 'Email',
-				value: user.email
-			},
-			{
-				id: 'phone',
-				name: 'Phone Number',
-				value: user.phone
-			},
-			{
-				id: 'age',
-				name: 'Age',
-				value: user.age
-			}
-		];
-		setAdditionalInfo(formattedInfo);
+		setAdditionalInfo(getAdditionalDetails(user));
 	}, [user]);
 
 	const handleEditSubmit = async data => {
-		try {
-			dispatch(updateUser(user.uid, data));
-			setShowEditModal(false);
-			toast.success('Successfuly edited the data!');
-		} catch (error) {
-			console.log(error);
-			toast.error(error);
-		}
-
-		fetchUserData();
+		dispatch(updateUser(user.uid, data));
+		setShowEditModal(false);
+		toast.success('Successfuly edited the data!');
 	};
 
 	return (
@@ -119,6 +52,7 @@ const UserDetails = ({ users }) => {
 			<section style={{ backgroundColor: '#eee', padding: '30px' }}>
 				<div className="user-details-title">User Details</div>
 				<div className="row">
+
 					<div className="col-lg-3">
 						<UserProfile user={userProfile} />
 					</div>
@@ -130,20 +64,22 @@ const UserDetails = ({ users }) => {
 								onClick={() => {
 									setShowEditModal(true);
 								}}
-							> Edit Information
+							>
+								Edit Information
 							</Button>
 						</div>
 						<RowTable rows={additionalInfo} />
 					</div>
 				</div>
-				{showEditModal && createPortal(
+
+				{showEditModal && (
 					<EditDataModal
-						data={editableData}
+						data={getEditableUserData(user)}
 						onClose={() => {
 							setShowEditModal(false);
 						}}
-						onSubmit={handleEditSubmit} />,
-					document.body
+						onSubmit={handleEditSubmit}
+					/>
 				)}
 			</section>
 		</Layout>

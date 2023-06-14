@@ -4,11 +4,6 @@ export const isUserLoggedIn = () => {
 	const cookies = new Cookies();
 	const accessToken = cookies.get('accessToken');
 
-	// If (accessToken) {
-	// 	return true;
-	// }
-
-	// return false;
 	return Boolean(accessToken);
 };
 
