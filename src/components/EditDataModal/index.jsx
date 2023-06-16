@@ -18,6 +18,7 @@ const EditDataModal = ({ onClose, data, onSubmit }) => {
 		<Form.Group key={element.id} className="mb-3">
 			<Form.Label>{element.name}</Form.Label>
 			<Form.Control
+				as="textarea"
 				id={element.id}
 				placeholder={element.value}
 				onChange={handleChange}

@@ -32,6 +32,33 @@ const venueReducer = (state = initialState, action) => {
 			};
 		}
 
+		case 'DELETE_VENUE': {
+			const venueID = action.payload.id;
+			const updatedVenues = state.venues.filter(venue => venue.id !== venueID);
+			return {
+				...state,
+				venues: updatedVenues
+			};
+		}
+
+		case 'UPDATE_VENUE': {
+			const updatedVenue = action.payload;
+			const updatedVenues = state.venues.map(venue => {
+				if (venue.id === updatedVenue.id) {
+					return {
+						...venue,
+						...updatedVenue
+					};
+				}
+
+				return venue;
+			});
+			return {
+				...state,
+				venues: updatedVenues
+			};
+		}
+
 		default: {
 			return state;
 		}

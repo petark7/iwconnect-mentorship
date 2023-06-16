@@ -1,5 +1,5 @@
 import { ActionTypes } from '../../constants/actionTypes';
-import { getCollection } from '../../utils/firebaseUtils';
+import { getCollection, updateDocument, deleteVenue as deleteVenueFirebase } from '../../utils/firebaseUtils';
 
 export const fetchVenues = () => async (dispatch, getState) => {
 	const { venues } = getState().venue; // Get the current state from the Redux store
@@ -17,4 +17,16 @@ export const fetchVenues = () => async (dispatch, getState) => {
 		// If the venues array in the state is already populated, use the data from the store
 		dispatch({ type: ActionTypes.FETCH_VENUES_FROM_STORE });
 	}
+};
+
+export const updateVenue = (venueId, updatedData) => dispatch => {
+	// Update venue from DB and Redux Store
+	dispatch({ type: ActionTypes.UPDATE_VENUE, payload: { id: venueId, ...updatedData } });
+	updateDocument('venues', venueId, updatedData);
+};
+
+export const deleteVenue = venueId => dispatch => {
+	// Delete venue from DB and Redux Store
+	dispatch({ type: ActionTypes.DELETE_VENUE, payload: { id: venueId } });
+	deleteVenueFirebase(venueId);
 };

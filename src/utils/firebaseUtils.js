@@ -32,6 +32,17 @@ export const deleteUser = async userID => {
 	}
 };
 
+export const deleteVenue = async venueID => {
+	try {
+		console.log(venueID);
+		const venue = doc(db, 'venues', String(venueID));
+		await deleteDoc(venue);
+	} catch (error) {
+		console.log(error);
+		return error;
+	}
+};
+
 export const logOut = async () => {
 	try {
 		signOut(auth);

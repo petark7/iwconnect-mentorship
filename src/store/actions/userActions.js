@@ -20,13 +20,13 @@ export const fetchUsers = () => async (dispatch, getState) => {
 };
 
 export const updateUser = (userId, updatedData) => dispatch => {
-	// Dispatch an action to update the Redux store with the edited data
+	// Update user from DB and Redux Store
 	dispatch({ type: ActionTypes.UPDATE_USER, payload: { id: userId, ...updatedData } });
 	updateDocument('users', userId, updatedData);
 };
 
 export const deleteUser = userId => dispatch => {
-	// Dispatch an action to delete user from Redux store with the edited data
+	// Delete user from DB and Redux Store
 	dispatch({ type: ActionTypes.DELETE_USER, payload: { id: userId } });
 	deleteUserFirebase(userId);
 };

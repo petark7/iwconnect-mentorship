@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-hot-toast';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 import Layout from '../../components/Layout';
 import DataTable from '../../components/DataTable';
 import InviteUserModal from '../../components/InviteUserModal';
 import ItemsPerPageControl from '../../components/ItemsPerPage';
-import { fetchVenues } from '../../store/actions/venueActions';
-import { addDocument } from '../../utils/firebaseUtils';
-import venueData from '../../venue_data.json';
+import { fetchVenues, deleteVenue } from '../../store/actions/venueActions';
+import { columns } from '../../constants/venuesTable';
 import Modal from '../../components/Modal';
 
 const Venues = () => {
@@ -18,25 +17,29 @@ const Venues = () => {
 	const dispatch = useDispatch();
 	const venues = useSelector(state => state.venue.venues);
 	const [addVenueModal, setAddVenueModal] = useState(false);
-	const [deleteVenueModal, setDeleteVenueModal] = useState({
-		venueID: null
-	});
+	const [selectedVenueId, setSelectedVenueId] = useState(0);
 	const [itemsPerPage, setItemsPerPage] = useState(20); // For pagination
-
-	const handleTableClick = venueID => {
-		navigate(`/venue-details/${venueID}`);
-	};
 
 	useEffect(() => {
 		dispatch(fetchVenues());
 	}, []);
+
+	const deleteVenueFromDB = async () => {
+		try {
+			dispatch(deleteVenue(selectedVenueId));
+			setSelectedVenueId(0); // Close modal
+			toast.success('Venue deleted succesffully.');
+		} catch (error) {
+			toast.error(`Venue was not deleted successfully. ${error}`);
+		}
+	};
 
 	const rows = venues.map(venue => {
 		const deleteButton = (
 			<Button
 				variant="danger" onClick={event => {
 					event.stopPropagation();
-					setDeleteVenueModal({ venueID: venue.id });
+					setSelectedVenueId(venue.id);
 				}}
 			>Delete
 			</Button>
@@ -50,28 +53,9 @@ const Venues = () => {
 		});
 	});
 
-	const columns = [
-		{
-			title: 'Venue Name',
-			key: 'name'
-		},
-		{
-			title: 'Location',
-			key: 'location'
-		},
-		{
-			title: 'Available Rooms',
-			key: 'availableRooms'
-		},
-		{
-			title: 'Actions',
-			key: 'actions'
-		}
-	];
-
 	return (
 		<Layout>
-			<h1>Users</h1>
+			<h1>Venues</h1>
 			<div className="d-flex justify-content-between h-10">
 				<Button
 					variant="success" onClick={() => {
@@ -83,17 +67,26 @@ const Venues = () => {
 				<ItemsPerPageControl itemsPerPage={setItemsPerPage} />
 			</div>
 			<InviteUserModal toggleModal={setAddVenueModal} isModalShown={addVenueModal} />
-			<DataTable columns={columns} rows={rows} itemsPerPage={itemsPerPage} onClick={handleTableClick} />
+			<DataTable
+				columns={columns}
+				rows={rows}
+				itemsPerPage={itemsPerPage}
+				onClick={venueID => navigate(`/venue-details/${venueID}`)}
+			/>
 
-			{ Boolean(deleteVenueModal.venueID)
+			{ Boolean(selectedVenueId)
 				&& createPortal(
 					<Modal
-						isOpened={setDeleteVenueModal} title="Delete venue"
+						isOpened={setSelectedVenueId} title="Delete venue"
 					>
 						<p>Are you sure you want to delete this venue?</p>
 						<div className="d-flex justify-content-end gap-1">
-							<Button variant="success" onClick={() => {}}>Yes</Button>
-							<Button variant="danger" onClick={() => setDeleteVenueModal(false)}>Cancel</Button>
+							<Button
+								variant="success" onClick={() => deleteVenueFromDB()}
+							>
+								Yes
+							</Button>
+							<Button variant="danger" onClick={() => setSelectedVenueId(0)}>Cancel</Button>
 						</div>
 					</Modal>, document.body)}
 		</Layout>

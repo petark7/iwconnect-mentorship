@@ -25,9 +25,8 @@ const Users = ({ users }) => {
 	}, [users]);
 
 	const deleteUserFromDB = async () => {
-		const userID = selectedUserId;
 		try {
-			dispatch(deleteUser(userID));
+			dispatch(deleteUser(selectedUserId));
 			setSelectedUserId(0); // Close modal
 			toast.success('User deleted succesffully.');
 		} catch (error) {

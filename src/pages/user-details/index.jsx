@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import { toast } from 'react-hot-toast';
 import Layout from '../../components/Layout';
 import RowTable from '../../components/RowTable';
-import UserProfile from '../../components/UserProfile';
+import Profile from '../../components/Profile';
 import EditDataModal from '../../components/EditDataModal';
 import { updateUser } from '../../store/actions/userActions';
 import { getEditableUserData, getAdditionalDetails } from '../../utils/userDetailsUtils';
@@ -20,12 +20,8 @@ const UserDetails = ({ users }) => {
 	const [userProfile, setUserProfile] = useState({});
 	const [additionalInfo, setAdditionalInfo] = useState([]);
 
-	const fetchUserData = () => {
-		setUser(users.find(user => user.uid === uid));
-	};
-
 	useEffect(() => {
-		fetchUserData();
+		setUser(users.find(user => user.uid === uid));
 	}, [users]);
 
 	useEffect(() => {
@@ -54,7 +50,7 @@ const UserDetails = ({ users }) => {
 				<div className="row">
 
 					<div className="col-lg-3">
-						<UserProfile user={userProfile} />
+						<Profile actor={userProfile} />
 					</div>
 
 					<div className="col-lg-9">
@@ -75,9 +71,7 @@ const UserDetails = ({ users }) => {
 				{showEditModal && (
 					<EditDataModal
 						data={getEditableUserData(user)}
-						onClose={() => {
-							setShowEditModal(false);
-						}}
+						onClose={() => setShowEditModal(false)}
 						onSubmit={handleEditSubmit}
 					/>
 				)}
