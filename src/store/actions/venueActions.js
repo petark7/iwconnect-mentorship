@@ -27,6 +27,12 @@ export const updateVenue = (venueId, updatedData) => dispatch => {
 
 export const deleteVenue = venueId => dispatch => {
 	// Delete venue from DB and Redux Store
-	dispatch({ type: ActionTypes.DELETE_VENUE, payload: { id: venueId } });
 	deleteVenueFirebase(venueId);
+	dispatch({ type: ActionTypes.DELETE_VENUE, payload: { id: venueId } });
+};
+
+export const updateRoom = (roomID, updatedFields) => dispatch => {
+	// Delete venue from DB and Redux Store
+	dispatch({ type: ActionTypes.UPDATE_ROOM, payload: { id: roomID, updatedFields } });
+	// DeleteRoomFirebase(venueId);
 };

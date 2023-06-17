@@ -41,14 +41,15 @@ const Venues = () => {
 					event.stopPropagation();
 					setSelectedVenueId(venue.id);
 				}}
-			>Delete
+			>
+				Delete
 			</Button>
 		);
 		return 	({
 			id: venue.id,
 			name: venue.name,
-			location: venue.location,
-			availableRooms: venue.available_rooms.length,
+			location: venue.location.address,
+			rooms: venue.rooms.length,
 			actions: deleteButton
 		});
 	});

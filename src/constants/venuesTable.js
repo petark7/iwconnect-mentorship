@@ -8,8 +8,8 @@ export const columns = [
 		key: 'location'
 	},
 	{
-		title: 'Available Rooms',
-		key: 'availableRooms'
+		title: 'Rooms',
+		key: 'rooms'
 	},
 	{
 		title: 'Actions',

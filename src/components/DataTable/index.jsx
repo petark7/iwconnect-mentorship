@@ -25,7 +25,7 @@ const DataTable = ({ columns, rows, itemsPerPage, onClick }) => {
 				<thead>
 					<tr>
 						{columns.map(element => (
-							<th key={element.key}>{element.title}</th>
+							<th key={element.key} className="col-3">{element.title}</th>
 						))}
 					</tr>
 				</thead>

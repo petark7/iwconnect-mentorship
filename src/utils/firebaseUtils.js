@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, setDoc, doc, deleteDoc, getDocs, collection, updateDoc } from 'firebase/firestore';
 import { getAuth, signOut, createUserWithEmailAndPassword } from 'firebase/auth';
 import Cookies from 'universal-cookie';
+import { toast } from 'react-hot-toast';
 import firebaseConfig from '../constants/firebaseConfig';
 
 export const app = initializeApp(firebaseConfig);
@@ -69,7 +70,7 @@ export const getCollection = async collectionName => {
 
 export const updateDocument = async (collectionName, userId, documentData) => {
 	try {
-		const docRef = doc(db, collectionName, userId);
+		const docRef = doc(db, collectionName, String(userId));
 		await updateDoc(docRef, documentData);
 	} catch (error) {
 		console.log(error);
@@ -84,5 +85,16 @@ export const addDocument = async (collectionName, id, documentData) => {
 	} catch (error) {
 		console.log(error);
 		throw error;
+	}
+};
+
+export const addDocuments = async (collectionName, data) => {
+	try {
+		await data.forEach(async element => {
+			await setDoc(doc(db, collectionName, String(element.id)), element);
+		});
+		toast('added');
+	} catch (error) {
+		console.log(error);
 	}
 };

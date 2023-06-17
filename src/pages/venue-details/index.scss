@@ -1,5 +1,47 @@
+$grid-spacing: 10px;
+
 .venue-details-title {
-    font-size: 30px;
+    font-size: 35px;
+    font-weight: 600;
     text-align: center;
     margin-bottom: 15px;
+}
+
+.leaflet-container {
+    width: 100%;
+    height: 300px;
+}
+
+.venueDetails-map {
+    margin-right: $grid-spacing;
+}
+
+.venueDetails-rooms {
+    margin-right: -$grid-spacing;
+}
+
+.venueDetails-venueData {
+    margin-right: -$grid-spacing;
+}
+
+.venueDetails-profile {
+    margin-right: $grid-spacing;
+}
+
+.leaflet-pane,
+.leaflet-bottom,
+.leaflet-zoom-box,
+.leaflet-control,
+.leaflet-top {
+    z-index: 0 !important;
+}
+
+.venueDetails-reserveRoomBtn,
+.venueDetails-editRoomBtn {
+    margin-right: $grid-spacing;
+    width: 130px;
+}
+
+.venueDetails-deleteRoomBtn {
+    width: 130px;
 }

@@ -1,0 +1,1366 @@
+[
+    {
+        "id": 1,
+        "name": "Yodel",
+        "image": "https://robohash.org/nisioditharum.png?size=1000x1000&set=set1",
+        "description": "Mauris sit amet eros.",
+        "location": {
+            "address": "764 Eastwood Avenue",
+            "lat": 46.8087637,
+            "lon": 1.6937962
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "JumpXS",
+                "available": true
+            },
+            {
+                "id": 2,
+                "name": "Zoombeat",
+                "available": false
+            },
+            {
+                "id": 3,
+                "name": "Twitternation",
+                "available": true
+            },
+            {
+                "id": 4,
+                "name": "Divanoodle",
+                "available": false
+            },
+            {
+                "id": 5,
+                "name": "Mydo",
+                "available": true
+            },
+            {
+                "id": 6,
+                "name": "Centizu",
+                "available": true
+            },
+            {
+                "id": 7,
+                "name": "Jetwire",
+                "available": true
+            },
+            {
+                "id": 8,
+                "name": "Shuffledrive",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Jayo",
+        "image": "https://robohash.org/quamvoluptatesconsequatur.png?size=1000x1000&set=set1",
+        "description": "Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.",
+        "location": {
+            "address": "6541 Green Street",
+            "lat": 51.8326054,
+            "lon": 18.3984345
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Layo",
+                "available": true
+            },
+            {
+                "id": 2,
+                "name": "Rhyzio",
+                "available": true
+            },
+            {
+                "id": 3,
+                "name": "Realfire",
+                "available": false
+            },
+            {
+                "id": 4,
+                "name": "Topiczoom",
+                "available": false
+            },
+            {
+                "id": 5,
+                "name": "Vipe",
+                "available": false
+            },
+            {
+                "id": 6,
+                "name": "Camido",
+                "available": true
+            },
+            {
+                "id": 7,
+                "name": "Aimbu",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Pixoboo",
+        "image": "https://robohash.org/iustocumdoloribus.png?size=1000x1000&set=set1",
+        "description": "Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.",
+        "location": {
+            "address": "278 Lighthouse Bay Pass",
+            "lat": 30.4058071,
+            "lon": -8.8293845
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Ntag",
+                "available": true
+            },
+            {
+                "id": 2,
+                "name": "Realcube",
+                "available": false
+            },
+            {
+                "id": 3,
+                "name": "Gigabox",
+                "available": false
+            },
+            {
+                "id": 4,
+                "name": "Voonte",
+                "available": false
+            },
+            {
+                "id": 5,
+                "name": "Kaymbo",
+                "available": false
+            },
+            {
+                "id": 6,
+                "name": "Quaxo",
+                "available": true
+            },
+            {
+                "id": 7,
+                "name": "Feedbug",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Jayo",
+        "image": "https://robohash.org/naminciduntearum.png?size=1000x1000&set=set1",
+        "description": "Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
+        "location": {
+            "address": "1 Northwestern Center",
+            "lat": -0.5083679,
+            "lon": -48.6388879
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Tambee",
+                "available": false
+            },
+            {
+                "id": 2,
+                "name": "Innotype",
+                "available": false
+            },
+            {
+                "id": 3,
+                "name": "Dabfeed",
+                "available": true
+            },
+            {
+                "id": 4,
+                "name": "Ailane",
+                "available": true
+            },
+            {
+                "id": 5,
+                "name": "Camimbo",
+                "available": false
+            },
+            {
+                "id": 6,
+                "name": "Jamia",
+                "available": true
+            },
+            {
+                "id": 7,
+                "name": "Photospace",
+                "available": false
+            },
+            {
+                "id": 8,
+                "name": "Yabox",
+                "available": true
+            },
+            {
+                "id": 9,
+                "name": "Trudoo",
+                "available": false
+            },
+            {
+                "id": 10,
+                "name": "Skiba",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Youspan",
+        "image": "https://robohash.org/voluptatibusquinostrum.png?size=1000x1000&set=set1",
+        "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam.",
+        "location": {
+            "address": "7987 Butternut Parkway",
+            "lat": 51.6781161,
+            "lon": 79.7893754
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Rhynyx",
+                "available": false
+            },
+            {
+                "id": 2,
+                "name": "Teklist",
+                "available": false
+            },
+            {
+                "id": 3,
+                "name": "Gigashots",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Jetpulse",
+        "image": "https://robohash.org/doloreslaborumquia.png?size=1000x1000&set=set1",
+        "description": "Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis.",
+        "location": {
+            "address": "52 Northridge Road",
+            "lat": 38.476374,
+            "lon": 114.24517
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Aimbo",
+                "available": false
+            },
+            {
+                "id": 2,
+                "name": "Avavee",
+                "available": false
+            },
+            {
+                "id": 3,
+                "name": "Kwilith",
+                "available": true
+            },
+            {
+                "id": 4,
+                "name": "Voonix",
+                "available": true
+            },
+            {
+                "id": 5,
+                "name": "Dynabox",
+                "available": true
+            },
+            {
+                "id": 6,
+                "name": "Rhynyx",
+                "available": false
+            },
+            {
+                "id": 7,
+                "name": "Blogspan",
+                "available": true
+            },
+            {
+                "id": 8,
+                "name": "Zoombox",
+                "available": false
+            },
+            {
+                "id": 9,
+                "name": "Kamba",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Jabberbean",
+        "image": "https://robohash.org/evenietveroipsam.png?size=1000x1000&set=set1",
+        "description": "Suspendisse accumsan tortor quis turpis. Sed ante.",
+        "location": {
+            "address": "8 Hanson Center",
+            "lat": -8.3104,
+            "lon": 123.229
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Yodel",
+                "available": false
+            },
+            {
+                "id": 2,
+                "name": "Kazio",
+                "available": false
+            },
+            {
+                "id": 3,
+                "name": "Kamba",
+                "available": false
+            },
+            {
+                "id": 4,
+                "name": "DabZ",
+                "available": false
+            },
+            {
+                "id": 5,
+                "name": "Skippad",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Fivebridge",
+        "image": "https://robohash.org/corporisquisquis.png?size=1000x1000&set=set1",
+        "description": "Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat.",
+        "location": {
+            "address": "49 Waubesa Plaza",
+            "lat": -2.5082067,
+            "lon": 112.1787896
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Quatz",
+                "available": true
+            },
+            {
+                "id": 2,
+                "name": "Jabberstorm",
+                "available": false
+            },
+            {
+                "id": 3,
+                "name": "Zoozzy",
+                "available": false
+            },
+            {
+                "id": 4,
+                "name": "Yamia",
+                "available": true
+            },
+            {
+                "id": 5,
+                "name": "Centidel",
+                "available": true
+            },
+            {
+                "id": 6,
+                "name": "Jamia",
+                "available": true
+            },
+            {
+                "id": 7,
+                "name": "Plajo",
+                "available": false
+            },
+            {
+                "id": 8,
+                "name": "Yakidoo",
+                "available": true
+            },
+            {
+                "id": 9,
+                "name": "Kamba",
+                "available": true
+            },
+            {
+                "id": 10,
+                "name": "Gigaclub",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Rhycero",
+        "image": "https://robohash.org/magnamtemporibusdolore.png?size=1000x1000&set=set1",
+        "description": "Morbi non quam nec dui luctus rutrum. Nulla tellus.",
+        "location": {
+            "address": "32584 Lakewood Gardens Pass",
+            "lat": 50.31512,
+            "lon": 17.38347
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Jabbercube",
+                "available": true
+            },
+            {
+                "id": 2,
+                "name": "Lajo",
+                "available": true
+            },
+            {
+                "id": 3,
+                "name": "Mydeo",
+                "available": true
+            },
+            {
+                "id": 4,
+                "name": "Twitternation",
+                "available": true
+            },
+            {
+                "id": 5,
+                "name": "Meevee",
+                "available": true
+            },
+            {
+                "id": 6,
+                "name": "Tagfeed",
+                "available": true
+            },
+            {
+                "id": 7,
+                "name": "Jetwire",
+                "available": true
+            },
+            {
+                "id": 8,
+                "name": "Rhycero",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Trudeo",
+        "image": "https://robohash.org/totamvoluptatemcupiditate.png?size=1000x1000&set=set1",
+        "description": "Sed ante.",
+        "location": {
+            "address": "0 School Center",
+            "lat": 23.681774,
+            "lon": 113.056042
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Browsecat",
+                "available": true
+            },
+            {
+                "id": 2,
+                "name": "Wikido",
+                "available": true
+            },
+            {
+                "id": 3,
+                "name": "Meemm",
+                "available": true
+            },
+            {
+                "id": 4,
+                "name": "Trilia",
+                "available": true
+            },
+            {
+                "id": 5,
+                "name": "Vipe",
+                "available": false
+            },
+            {
+                "id": 6,
+                "name": "Brainlounge",
+                "available": true
+            },
+            {
+                "id": 7,
+                "name": "Oodoo",
+                "available": true
+            },
+            {
+                "id": 8,
+                "name": "Pixonyx",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Yadel",
+        "image": "https://robohash.org/nequevoluptasdolorem.png?size=1000x1000&set=set1",
+        "description": "Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "location": {
+            "address": "02 Granby Circle",
+            "lat": 51.4798767,
+            "lon": 19.5308953
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Realblab",
+                "available": true
+            },
+            {
+                "id": 2,
+                "name": "Voonder",
+                "available": false
+            },
+            {
+                "id": 3,
+                "name": "Avavee",
+                "available": true
+            },
+            {
+                "id": 4,
+                "name": "Devpulse",
+                "available": true
+            },
+            {
+                "id": 5,
+                "name": "Linkbridge",
+                "available": true
+            },
+            {
+                "id": 6,
+                "name": "Bubblebox",
+                "available": false
+            },
+            {
+                "id": 7,
+                "name": "Viva",
+                "available": true
+            },
+            {
+                "id": 8,
+                "name": "Pixonyx",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Skyndu",
+        "image": "https://robohash.org/excepturifugiatest.png?size=1000x1000&set=set1",
+        "description": "Donec dapibus.",
+        "location": {
+            "address": "40397 Debra Pass",
+            "lat": 55.590397,
+            "lon": 37.6278499
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Gigaclub",
+                "available": false
+            },
+            {
+                "id": 2,
+                "name": "Plajo",
+                "available": true
+            },
+            {
+                "id": 3,
+                "name": "Ainyx",
+                "available": true
+            },
+            {
+                "id": 4,
+                "name": "Feedbug",
+                "available": true
+            },
+            {
+                "id": 5,
+                "name": "Twitternation",
+                "available": true
+            },
+            {
+                "id": 6,
+                "name": "Edgeblab",
+                "available": false
+            },
+            {
+                "id": 7,
+                "name": "Centidel",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Gevee",
+        "image": "https://robohash.org/estvoluptatumaperiam.png?size=1000x1000&set=set1",
+        "description": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim.",
+        "location": {
+            "address": "74874 Sauthoff Junction",
+            "lat": -6.8353111,
+            "lon": 107.9561464
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Kazio",
+                "available": false
+            },
+            {
+                "id": 2,
+                "name": "Mybuzz",
+                "available": true
+            },
+            {
+                "id": 3,
+                "name": "Livetube",
+                "available": true
+            },
+            {
+                "id": 4,
+                "name": "Kare",
+                "available": false
+            },
+            {
+                "id": 5,
+                "name": "Youbridge",
+                "available": true
+            },
+            {
+                "id": 6,
+                "name": "Flashpoint",
+                "available": false
+            },
+            {
+                "id": 7,
+                "name": "Realpoint",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Fanoodle",
+        "image": "https://robohash.org/assumendafacereodit.png?size=1000x1000&set=set1",
+        "description": "Donec posuere metus vitae ipsum. Aliquam non mauris.",
+        "location": {
+            "address": "72 Russell Road",
+            "lat": 35.1524362,
+            "lon": -3.6293797
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Quamba",
+                "available": false
+            },
+            {
+                "id": 2,
+                "name": "Cogidoo",
+                "available": false
+            },
+            {
+                "id": 3,
+                "name": "Blogspan",
+                "available": false
+            },
+            {
+                "id": 4,
+                "name": "Thoughtblab",
+                "available": true
+            },
+            {
+                "id": 5,
+                "name": "Mynte",
+                "available": true
+            },
+            {
+                "id": 6,
+                "name": "Browsetype",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Flashdog",
+        "image": "https://robohash.org/quonisiquidem.png?size=1000x1000&set=set1",
+        "description": "Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",
+        "location": {
+            "address": "95673 Debra Circle",
+            "lat": 12.2722898,
+            "lon": -86.0529604
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Youfeed",
+                "available": false
+            },
+            {
+                "id": 2,
+                "name": "Buzzster",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Twitterbridge",
+        "image": "https://robohash.org/molestiasenimtempore.png?size=1000x1000&set=set1",
+        "description": "Etiam vel augue.",
+        "location": {
+            "address": "26554 Charing Cross Hill",
+            "lat": 1.130349,
+            "lon": -77.550994
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Yodoo",
+                "available": true
+            },
+            {
+                "id": 2,
+                "name": "Wikido",
+                "available": true
+            },
+            {
+                "id": 3,
+                "name": "Vitz",
+                "available": true
+            },
+            {
+                "id": 4,
+                "name": "Meeveo",
+                "available": true
+            },
+            {
+                "id": 5,
+                "name": "Wordtune",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Rhynyx",
+        "image": "https://robohash.org/voluptatesofficiamodi.png?size=1000x1000&set=set1",
+        "description": "Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum.",
+        "location": {
+            "address": "079 Green Ridge Hill",
+            "lat": -6.5445698,
+            "lon": 106.22868
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Leexo",
+                "available": false
+            },
+            {
+                "id": 2,
+                "name": "Quinu",
+                "available": false
+            },
+            {
+                "id": 3,
+                "name": "Photobug",
+                "available": false
+            },
+            {
+                "id": 4,
+                "name": "Photofeed",
+                "available": false
+            },
+            {
+                "id": 5,
+                "name": "Zoombeat",
+                "available": true
+            },
+            {
+                "id": 6,
+                "name": "Chatterpoint",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Gigazoom",
+        "image": "https://robohash.org/ipsamofficiisest.png?size=1000x1000&set=set1",
+        "description": "Duis aliquam convallis nunc.",
+        "location": {
+            "address": "35 Graedel Parkway",
+            "lat": 24.77848,
+            "lon": 110.496593
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Riffpath",
+                "available": true
+            },
+            {
+                "id": 2,
+                "name": "Realbridge",
+                "available": true
+            },
+            {
+                "id": 3,
+                "name": "Yakidoo",
+                "available": false
+            },
+            {
+                "id": 4,
+                "name": "Tavu",
+                "available": true
+            },
+            {
+                "id": 5,
+                "name": "Blogspan",
+                "available": true
+            },
+            {
+                "id": 6,
+                "name": "Riffwire",
+                "available": false
+            },
+            {
+                "id": 7,
+                "name": "Jaxspan",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": 19,
+        "name": "Twimbo",
+        "image": "https://robohash.org/eumfacilisomnis.png?size=1000x1000&set=set1",
+        "description": "Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat.",
+        "location": {
+            "address": "13709 American Ash Alley",
+            "lat": 29.3332984,
+            "lon": 48.0158927
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Gabtune",
+                "available": false
+            },
+            {
+                "id": 2,
+                "name": "Twitterbridge",
+                "available": false
+            },
+            {
+                "id": 3,
+                "name": "Thoughtbeat",
+                "available": true
+            },
+            {
+                "id": 4,
+                "name": "Buzzbean",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": 20,
+        "name": "Jaxnation",
+        "image": "https://robohash.org/laboriosamdignissimoserror.png?size=1000x1000&set=set1",
+        "description": "Nunc purus. Phasellus in felis. Donec semper sapien a libero.",
+        "location": {
+            "address": "0 Old Gate Street",
+            "lat": 36.8414494,
+            "lon": -2.4567059
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Brainsphere",
+                "available": false
+            },
+            {
+                "id": 2,
+                "name": "Bluejam",
+                "available": true
+            },
+            {
+                "id": 3,
+                "name": "Yacero",
+                "available": true
+            },
+            {
+                "id": 4,
+                "name": "Feednation",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": 21,
+        "name": "Tavu",
+        "image": "https://robohash.org/veritatiscumdolores.png?size=1000x1000&set=set1",
+        "description": "Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",
+        "location": {
+            "address": "7462 Norway Maple Pass",
+            "lat": 38.0423558,
+            "lon": 23.6842658
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Demimbu",
+                "available": true
+            },
+            {
+                "id": 2,
+                "name": "Rhybox",
+                "available": true
+            },
+            {
+                "id": 3,
+                "name": "Yombu",
+                "available": false
+            },
+            {
+                "id": 4,
+                "name": "Trupe",
+                "available": true
+            },
+            {
+                "id": 5,
+                "name": "Wikivu",
+                "available": true
+            },
+            {
+                "id": 6,
+                "name": "Jaxworks",
+                "available": true
+            },
+            {
+                "id": 7,
+                "name": "Jamia",
+                "available": false
+            },
+            {
+                "id": 8,
+                "name": "Trupe",
+                "available": true
+            },
+            {
+                "id": 9,
+                "name": "Jabbersphere",
+                "available": false
+            },
+            {
+                "id": 10,
+                "name": "Wordware",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": 22,
+        "name": "Eidel",
+        "image": "https://robohash.org/ipsasitdolorum.png?size=1000x1000&set=set1",
+        "description": "Duis mattis egestas metus.",
+        "location": {
+            "address": "65961 Hansons Drive",
+            "lat": 58.9955511,
+            "lon": 16.2054756
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Jabberbean",
+                "available": false
+            },
+            {
+                "id": 2,
+                "name": "Dabfeed",
+                "available": true
+            },
+            {
+                "id": 3,
+                "name": "Feednation",
+                "available": true
+            },
+            {
+                "id": 4,
+                "name": "Rhynyx",
+                "available": true
+            },
+            {
+                "id": 5,
+                "name": "Fivespan",
+                "available": true
+            },
+            {
+                "id": 6,
+                "name": "Npath",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": 23,
+        "name": "Feedspan",
+        "image": "https://robohash.org/sedaniminisi.png?size=1000x1000&set=set1",
+        "description": "Nulla ac enim.",
+        "location": {
+            "address": "560 Crescent Oaks Circle",
+            "lat": 7.4368244,
+            "lon": 3.2885455
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Oyoloo",
+                "available": false
+            },
+            {
+                "id": 2,
+                "name": "Rhybox",
+                "available": true
+            },
+            {
+                "id": 3,
+                "name": "Jaloo",
+                "available": false
+            },
+            {
+                "id": 4,
+                "name": "Browsedrive",
+                "available": false
+            },
+            {
+                "id": 5,
+                "name": "Buzzdog",
+                "available": false
+            },
+            {
+                "id": 6,
+                "name": "Photobean",
+                "available": true
+            },
+            {
+                "id": 7,
+                "name": "Skajo",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": 24,
+        "name": "Fadeo",
+        "image": "https://robohash.org/quosrepellatvelit.png?size=1000x1000&set=set1",
+        "description": "Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.",
+        "location": {
+            "address": "81 Nobel Drive",
+            "lat": 44.0698918,
+            "lon": 22.0985086
+        },
+        "rooms": []
+    },
+    {
+        "id": 25,
+        "name": "Topicshots",
+        "image": "https://robohash.org/nonquaset.png?size=1000x1000&set=set1",
+        "description": "Vivamus tortor. Duis mattis egestas metus. Aenean fermentum.",
+        "location": {
+            "address": "98 Lakewood Plaza",
+            "lat": 15.52591,
+            "lon": 47.63339
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Avavee",
+                "available": true
+            },
+            {
+                "id": 2,
+                "name": "Pixonyx",
+                "available": true
+            },
+            {
+                "id": 3,
+                "name": "Fivebridge",
+                "available": false
+            },
+            {
+                "id": 4,
+                "name": "Devpulse",
+                "available": false
+            },
+            {
+                "id": 5,
+                "name": "Gabtype",
+                "available": true
+            },
+            {
+                "id": 6,
+                "name": "Divape",
+                "available": false
+            },
+            {
+                "id": 7,
+                "name": "Zoonoodle",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": 26,
+        "name": "Yoveo",
+        "image": "https://robohash.org/etdoloresint.png?size=1000x1000&set=set1",
+        "description": "Morbi non lectus.",
+        "location": {
+            "address": "5425 Express Terrace",
+            "lat": 35.550111,
+            "lon": 112.713515
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Vinte",
+                "available": false
+            },
+            {
+                "id": 2,
+                "name": "Wordpedia",
+                "available": true
+            },
+            {
+                "id": 3,
+                "name": "Devcast",
+                "available": true
+            },
+            {
+                "id": 4,
+                "name": "Browsezoom",
+                "available": true
+            },
+            {
+                "id": 5,
+                "name": "Wikizz",
+                "available": true
+            },
+            {
+                "id": 6,
+                "name": "Dablist",
+                "available": false
+            },
+            {
+                "id": 7,
+                "name": "Wordify",
+                "available": false
+            },
+            {
+                "id": 8,
+                "name": "Jazzy",
+                "available": false
+            },
+            {
+                "id": 9,
+                "name": "Babblestorm",
+                "available": false
+            },
+            {
+                "id": 10,
+                "name": "Edgeclub",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": 27,
+        "name": "Thoughtbeat",
+        "image": "https://robohash.org/utcorporisea.png?size=1000x1000&set=set1",
+        "description": "Nullam varius.",
+        "location": {
+            "address": "6759 Calypso Court",
+            "lat": 51.7565958,
+            "lon": 20.9183286
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Lajo",
+                "available": false
+            },
+            {
+                "id": 2,
+                "name": "Browseblab",
+                "available": true
+            },
+            {
+                "id": 3,
+                "name": "Yodoo",
+                "available": false
+            },
+            {
+                "id": 4,
+                "name": "Centimia",
+                "available": false
+            },
+            {
+                "id": 5,
+                "name": "Brainlounge",
+                "available": false
+            },
+            {
+                "id": 6,
+                "name": "Quinu",
+                "available": false
+            },
+            {
+                "id": 7,
+                "name": "Linktype",
+                "available": false
+            },
+            {
+                "id": 8,
+                "name": "Digitube",
+                "available": false
+            },
+            {
+                "id": 9,
+                "name": "Buzzdog",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": 28,
+        "name": "Linkbridge",
+        "image": "https://robohash.org/occaecatietlibero.png?size=1000x1000&set=set1",
+        "description": "Nulla tellus.",
+        "location": {
+            "address": "37 Farmco Crossing",
+            "lat": 36.5122781,
+            "lon": 36.8653891
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Yakitri",
+                "available": false
+            },
+            {
+                "id": 2,
+                "name": "Flashspan",
+                "available": false
+            },
+            {
+                "id": 3,
+                "name": "Nlounge",
+                "available": false
+            },
+            {
+                "id": 4,
+                "name": "Brainbox",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": 29,
+        "name": "Chatterpoint",
+        "image": "https://robohash.org/vitaeenimet.png?size=1000x1000&set=set1",
+        "description": "Sed accumsan felis.",
+        "location": {
+            "address": "86695 Elka Circle",
+            "lat": 34.8389466,
+            "lon": 134.7007309
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Topicshots",
+                "available": true
+            },
+            {
+                "id": 2,
+                "name": "Fivespan",
+                "available": false
+            },
+            {
+                "id": 3,
+                "name": "Wikizz",
+                "available": true
+            },
+            {
+                "id": 4,
+                "name": "Jatri",
+                "available": true
+            },
+            {
+                "id": 5,
+                "name": "Tagopia",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": 30,
+        "name": "Wordify",
+        "image": "https://robohash.org/officiiseacumque.png?size=1000x1000&set=set1",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.",
+        "location": {
+            "address": "75488 Hermina Way",
+            "lat": 41.529235,
+            "lon": -8.5859581
+        },
+        "rooms": [
+            {
+                "id": 1,
+                "name": "Mynte",
+                "available": false
+            },
+            {
+                "id": 2,
+                "name": "Gabtype",
+                "available": true
+            },
+            {
+                "id": 3,
+                "name": "Oba",
+                "available": true
+            },
+            {
+                "id": 4,
+                "name": "Edgeclub",
+                "available": true
+            },
+            {
+                "id": 5,
+                "name": "Linklinks",
+                "available": false
+            },
+            {
+                "id": 6,
+                "name": "Tavu",
+                "available": false
+            }
+        ]
+    }
+]
