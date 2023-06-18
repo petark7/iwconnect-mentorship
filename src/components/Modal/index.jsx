@@ -5,7 +5,7 @@ import Portal from '../Portal';
 import useScrollBlock from '../../hooks/useScrollBlock';
 import './index.scss';
 
-const Modal = ({ isOpened, title, children, customStyling }) => {
+const Modal = ({ isOpened, title, children, styleContainer, styleElements }) => {
 	const [blockScroll, allowScroll] = useScrollBlock();
 	useEffect(() => {
 		blockScroll();
@@ -17,14 +17,16 @@ const Modal = ({ isOpened, title, children, customStyling }) => {
 	return (
 		<Portal>
 			<div className="modal-overlay" onClick={() => isOpened(false)} />
-			<div className={`modal-container ${customStyling}`}>
+			<div className={`modal-container ${styleContainer}`}>
 				<div className="modal-closeButton">
 					<GrClose onClick={() => {
 						isOpened(false);
 					}} />
 				</div>
-				<h1 className="modal-heading">{title}</h1>
-				{children}
+				<div className={`${styleElements}`}>
+					<h1 className="modal-heading">{title}</h1>
+					{children}
+				</div>
 			</div>
 		</Portal>
 	);

@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, setDoc, doc, deleteDoc, getDocs, collection, updateDoc } from 'firebase/firestore';
+import { getFirestore, setDoc, doc, deleteDoc, getDocs, collection, updateDoc, query, where } from 'firebase/firestore';
 import { getAuth, signOut, createUserWithEmailAndPassword } from 'firebase/auth';
 import Cookies from 'universal-cookie';
 import { toast } from 'react-hot-toast';
@@ -7,6 +7,7 @@ import firebaseConfig from '../constants/firebaseConfig';
 
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+const reservationsCollection = collection(db, 'reservations');
 const auth = getAuth();
 const cookies = new Cookies();
 
@@ -97,4 +98,50 @@ export const addDocuments = async (collectionName, data) => {
 	} catch (error) {
 		console.log(error);
 	}
+};
+
+export const addReservation = async data => {
+	const newReservationRef = doc(reservationsCollection);
+	const newReservationId = newReservationRef.id;
+
+	const reservationData = {
+		...data,
+		reservationID: newReservationId
+	};
+
+	try {
+		await setDoc(newReservationRef, reservationData);
+	} catch (error) {
+		throw error;
+	}
+};
+
+export const fetchReservations = async (venueID, roomID) => {
+	const q = query(reservationsCollection,
+		where('venueID', '==', venueID),
+		where('roomID', '==', roomID)
+	);
+
+	try {
+		const querySnapshot = await getDocs(q);
+		const reservations = querySnapshot.docs.map(doc => doc.data());
+
+		return reservations;
+	} catch (error) {
+		console.log('Error fetching reservations:', error);
+		return [];
+	}
+};
+
+export const getAvailableTimes = async (venueID, roomID, reservationDate) => {
+	const allTimes = ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'];
+	const reservations = await fetchReservations(venueID, roomID);
+	const unavailableTimes = new Set(reservations.map(reservation => {
+		if (reservation.reservationDate === reservationDate) {
+			return reservation.time;
+		}
+	}));
+	const availableTimes = allTimes.filter(item => !unavailableTimes.has(item));
+
+	return availableTimes;
 };

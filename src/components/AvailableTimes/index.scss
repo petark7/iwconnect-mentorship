@@ -1,0 +1,20 @@
+$selectedScaling: scale(1.2);
+
+.availableTimes {
+    width: 220px;
+}
+
+.availableTime-time {
+    cursor: pointer;
+    margin: 0;
+}
+
+.availableTime-time:hover {
+    transform: $selectedScaling;
+}
+
+.availableTime-selected {
+    padding: 2px;
+    border: 1px solid red;
+    border-radius: 10px;
+}

@@ -1,25 +1,20 @@
 import { useParams } from 'react-router';
 import { useEffect, useRef, useState } from 'react';
-import { useDispatch, connect, useSelector } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { toast } from 'react-hot-toast';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
-import 'leaflet/dist/leaflet.css';
+import 'leaflet/dist/leaflet.css'; // Forced import order here by XO
+import RoomsTable from '../../components/RoomsTable';
 import Layout from '../../components/Layout';
 import RowTable from '../../components/RowTable';
 import Profile from '../../components/Profile';
 import EditDataModal from '../../components/EditDataModal';
-import DataTable from '../../components/DataTable';
 import { getEditableVenueData, getAdditionalDetails } from '../../utils/venueDetailsUtils';
-import { addDocuments } from '../../utils/firebaseUtils';
-import { getRows } from '../../utils/roomTable';
 import { updateVenue } from '../../store/actions/venueActions';
-import { columns } from '../../constants/venueRoomsTable';
-import Modal from '../../components/Modal';
-import venuesArray from '../../venue_data5.json';
-import './index.scss';
 import { fetchUsers } from '../../store/actions/userActions';
+import './index.scss';
 
 const VenueDetails = ({ venues, users }) => {
 	const { venueID } = useParams();
@@ -32,12 +27,7 @@ const VenueDetails = ({ venues, users }) => {
 		}
 	});
 	// Room modification modals
-	const [modal, setModal] = useState({
-		roomID: 0,
-		modalEditVisible: false,
-		modalReserveVisible: false,
-		modalDeleteVisible: false
-	});
+
 	const [showEditModal, setShowEditModal] = useState(false); // Venue edit modal
 	const [venueProfile, setVenueProfile] = useState({});
 	const [additionalInfo, setAdditionalInfo] = useState([]);
@@ -47,9 +37,7 @@ const VenueDetails = ({ venues, users }) => {
 	useEffect(() => {
 		setVenue(venues.find(venue => venue.id === Number.parseInt(venueID, 10)));
 		dispatch(fetchUsers());
-	}, []);
-
-	const rows = venue?.rooms?.map(room => getRows(room, setModal));
+	}, [venues]);
 
 	useEffect(() => {
 		setVenueProfile({
@@ -60,14 +48,15 @@ const VenueDetails = ({ venues, users }) => {
 		});
 	}, [venue]);
 
-	const userExists = email => {
-		const user = users.find(user => user.email === email);
-		if (user) {
-			return true;
-		}
+	// TODO: IMPLEMENT USEREXISTS
+	// const userExists = email => {
+	// 	const user = users.find(user => user.email === email);
+	// 	if (user) {
+	// 		return true;
+	// 	}
 
-		return false;
-	};
+	// 	return false;
+	// };
 
 	// Update map coordinates as soon as page loads.
 	useEffect(() => {
@@ -88,47 +77,8 @@ const VenueDetails = ({ venues, users }) => {
 		toast.success('Successfuly edited the data!');
 	};
 
-	// HANDLE RESERVING ROOM
-	const reserveRoom = () => {
-		// TODO: ADD TO USER RESERVATIONS
-		const updatedVenue = { ...venue };
-		const roomIndex = updatedVenue.rooms.findIndex(room => room.id === modal.roomID);
-		if (roomIndex !== -1) {
-			// Update the available field of the room
-			updatedVenue.rooms[roomIndex].available = false; // Example update, modify as needed
-		}
-
-		dispatch(updateVenue(venue.id, updatedVenue));
-		toast.success('Room reserved successfully!');
-		setModal(0);
-	};
-
-	// HANDLE DELETING ROOM
-	const deleteRoom = () => {
-		try {
-			const updatedVenue = { ...venue };
-			const rooms = venue.rooms.filter(room => room.id !== modal.roomID);
-			updatedVenue.rooms = rooms;
-			dispatch(updateVenue(venue.id, updatedVenue));
-			toast.success('Room deleted successfully!');
-			setModal(0);
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
 	return (
 		<Layout>
-			<Button onClick={() => {
-				// AddDocuments('venues', venuesArray);
-				// const updatedVenue = { ...venue };
-				// updatedVenue.rooms[modal.roomID].available = false;
-				// alert(JSON.stringify(updatedVenue));
-				alert(JSON.stringify(venue.rooms));
-			}}
-			>
-				Add data
-			</Button>
 			<section style={{ backgroundColor: '#eee', padding: '30px' }}>
 				<h2 className="text-center mb-3">Venue Details</h2>
 				<div className="row">
@@ -165,7 +115,7 @@ const VenueDetails = ({ venues, users }) => {
 					</div>
 					<div className="venueDetails-rooms col-lg-9 shadow-sm p-3 mb-5 bg-body rounded">
 						<h3 className="text-center mb-3">Rooms</h3>
-						<DataTable columns={columns} rows={rows} itemsPerPage={20} onClick={() => {}} />
+						<RoomsTable venue={venue} users={users} />
 					</div>
 				</div>
 
@@ -177,40 +127,6 @@ const VenueDetails = ({ venues, users }) => {
 						}}
 						onSubmit={handleEditSubmit}
 					/>
-				)}
-
-				{modal.modalDeleteVisible && (
-					<Modal
-						isOpened={() => setModal(0)}
-						title="Delete room"
-					>
-						<p>Are you sure you want to delete this room?</p>
-						<div className="d-flex justify-content-end gap-1">
-							<Button variant="success" onClick={deleteRoom}>
-								Yes
-							</Button>
-							<Button variant="danger" onClick={() => setModal(0)()}>
-								Cancel
-							</Button>
-						</div>
-					</Modal>
-				)}
-
-				{modal.modalReserveVisible && (
-					<Modal
-						isOpened={() => setModal(0)}
-						title="Reserve room"
-					>
-						<p>Are you sure you want to reserve this room?</p>
-						<div className="d-flex justify-content-end gap-1">
-							<Button variant="success" onClick={reserveRoom}>
-								Reserve room
-							</Button>
-							<Button variant="danger" onClick={() => setModal(0)}>
-								Cancel
-							</Button>
-						</div>
-					</Modal>
 				)}
 			</section>
 		</Layout>
