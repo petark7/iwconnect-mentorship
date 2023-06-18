@@ -53,7 +53,7 @@ const Venues = () => {
 			actions: deleteButton
 		});
 	});
-
+	console.log(itemsPerPage);
 	return (
 		<Layout>
 			<h1>Venues</h1>
@@ -65,7 +65,7 @@ const Venues = () => {
 				>
 					Add a Venue
 				</Button>
-				<ItemsPerPageControl itemsPerPage={setItemsPerPage} />
+				<ItemsPerPageControl onSelect={setItemsPerPage} />
 			</div>
 			<InviteUserModal toggleModal={setAddVenueModal} isModalShown={addVenueModal} />
 			<DataTable
