@@ -19,6 +19,7 @@ import './index.scss';
 const RoomsTable = ({ venue, users }) => {
 	const dispatch = useDispatch();
 	const {
+		reset,
 		control,
 		watch,
 		register,
@@ -35,7 +36,6 @@ const RoomsTable = ({ venue, users }) => {
 	});
 	const rows = venue?.rooms?.map(room => getRows(room, setModal));
 	const selectedDate = watch('selectedDate');
-	const email = watch('email');
 	const selectedTime = watch('selectedTime');
 
 	const [availableTimes, setAvailableTimes] = useState();
@@ -57,6 +57,7 @@ const RoomsTable = ({ venue, users }) => {
 		setValue('selectedDate', null);
 		setValue('email', null);
 		setValue('selectedTime', null);
+		reset();
 		setAvailableTimes([]);
 	};
 
@@ -167,7 +168,7 @@ const RoomsTable = ({ venue, users }) => {
 										/>
 									)}
 								/>
-								{errors.selectedTime && selectedTime !== [] && <span>Please select a time</span>}
+								{errors.selectedTime && !selectedTime && <span>Please select a time</span>}
 							</div>
 						</Form.Group>
 
