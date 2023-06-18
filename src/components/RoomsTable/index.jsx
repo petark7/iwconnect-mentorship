@@ -137,8 +137,8 @@ const RoomsTable = ({ venue, users }) => {
 								}
 								)}
 							/>
-							<p>{errors.email?.message}</p>
-							<p>{errors.email?.pattern ? 'Entered email is not valid.' : null}</p>
+							<p className="text-danger">{errors.email?.message}</p>
+							<p className="text-danger">{errors.email?.pattern ? 'Entered email is not valid.' : null}</p>
 						</Form.Group>
 
 						<Form.Group className="mb-3">
@@ -152,7 +152,7 @@ const RoomsTable = ({ venue, users }) => {
 										<DatePicker value={field.value} onChange={onDateChange} />
 									)}
 								/>
-								{errors.selectedDate && <span>{errors.selectedDate.message}</span>}
+								{errors.selectedDate && <span className="text-danger">{errors.selectedDate.message}</span>}
 
 								<Controller
 									control={control}
@@ -168,7 +168,7 @@ const RoomsTable = ({ venue, users }) => {
 										/>
 									)}
 								/>
-								{errors.selectedTime && !selectedTime && <span>Please select a time</span>}
+								{errors.selectedTime && !selectedTime && <span className="text-danger">Please select a time</span>}
 							</div>
 						</Form.Group>
 

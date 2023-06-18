@@ -53,7 +53,7 @@ const Venues = () => {
 			actions: deleteButton
 		});
 	});
-	console.log(itemsPerPage);
+
 	return (
 		<Layout>
 			<h1>Venues</h1>
